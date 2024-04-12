@@ -23,7 +23,7 @@ body {
             0 0 21px #2b2fd1,
             0 0 42px #2b2fd1,
             0 0 82px #2b2fd1,
-            0 0 92px #2b2fd1;
+            0 0 92px #ffffff;
         z-index: 2;
     }
 
@@ -41,6 +41,26 @@ body {
     width: 100%;
     height: 100vh;
     overflow: hidden;
+}
+
+.headline-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    img{
+      
+        padding-left: 24px;
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+        filter: invert(96%) sepia(30%) saturate(85%) hue-rotate(8deg) brightness(104%) contrast(104%);
+
+        &:hover {
+            filter: invert(54%) sepia(48%) saturate(4557%) hue-rotate(215deg) brightness(102%) contrast(91%);
+            transform: scale(1.2);
+        }
+    }
 }
 
 .video-container {
@@ -101,6 +121,10 @@ body {
             &:nth-child(2) {
                 background-image: url('/assets/img/login/lock.png');
             }
+
+            &:nth-child(3) {
+                background-image: url('/assets/img/login/lock.png');
+            }
         }
 
         button {
@@ -124,64 +148,10 @@ body {
     }
 }
 
-.headline-box {}
-
 .form-btn-container {
     display: flex;
     align-items: center;
     flex-direction: column;
     gap: 5px;
 }
-
-.register-href {
-    text-decoration: none;
-    color: #38b4ff;
-    position: relative;
-    cursor: pointer;
-
-
-    &::after {
-        content: '';
-        position: absolute;
-        left: 0;
-        bottom: -1px;
-        width: 100%;
-        height: 1px;
-        background-color: #38b4ff;
-        transition: bottom ease-in-out .2s, opacity ease-in-out .2s;
-        opacity: 0;
-    }
-
-    &:hover::after {
-        bottom: -5px;
-        opacity: 1;
-    }
-}
-
-.headline-refs {
-    width: 90%;
-    padding: 10px;
-    display: flex;
-    justify-content: space-around;
-    cursor: pointer;
-
-    a {
-        text-decoration: none;
-        color: white;
-        transition: color ease-in-out .2s;
-
-        &:hover {
-            color: #38b4ff;
-            text-shadow:
-                0 0 7px #383bff,
-                0 0 10px #2b2fd1,
-                0 0 21px #2b2fd1,
-                0 0 42px #2b2fd1,
-                0 0 82px #2b2fd1,
-                0 0 92px #2b2fd1;
-
-        }
-    }
-}
-
 

@@ -24,4 +24,9 @@ showImprint(){
   this.router.navigateByUrl('imprint');
 }
 
+
+showSignup(){
+  this.router.navigateByUrl('signup');
+}
+
 }

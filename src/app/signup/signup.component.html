@@ -11,22 +11,20 @@
     </div>
     
     <div class="login-container">
-            <h1>Einloggen</h1>
+        <div class="headline-content">
+            <h1>Registrierung</h1>
+            <img src="/assets/img/signup/arrow_back.png" alt="" (click)="goToLoginPage()">
+        </div>
         <form action="submit">
             <input type="text" placeholder="E-mail" >
             <input type="password" placeholder="Passwort">
+            <input type="password" placeholder="Passwort wiederholen">
             <div class="form-btn-container">
-                <button>Login</button>
-                <button>Gäste-Login</button>
+                <button>Anmelden</button>
             </div>
 
         </form>
-        <div style="padding: 10px;"> Kein Account? <a (click)="showSignup()" class="register-href">Zur Registrierung</a></div>
-        <div class="headline-refs">
-            <a (click)="showDataprotection()">Datenschutz</a>
-            <a href="https://walter-doni.at">Walter Doni</a>
-            <a (click)="showImprint()">Impressum</a>
-        </div>
+      
        
     </div>
 </div>
