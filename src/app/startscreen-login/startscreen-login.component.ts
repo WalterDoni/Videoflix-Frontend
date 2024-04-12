@@ -18,5 +18,10 @@ constructor(private router: Router){
 //--Navigation--//
 showDataprotection(){
   this.router.navigateByUrl('dataprotection');
-}  
+} 
+
+showImprint(){
+  this.router.navigateByUrl('imprint');
+}
+
 }

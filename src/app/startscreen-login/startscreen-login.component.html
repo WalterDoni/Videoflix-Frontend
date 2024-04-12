@@ -5,9 +5,13 @@
     </video>
 </div>
 <div class="container">
-    <h1 class="headline">VIDEOFLIX</h1>
+    <div  class="headline-box">
+        <img src="./assets/img/logo.png" alt="">
+        <h1>VIDEOFLIX</h1>
+    </div>
+    
     <div class="login-container">
-        <h1>Einloggen</h1>
+            <h1>Einloggen</h1>
         <form action="submit">
             <input type="text" placeholder="E-mail" >
             <input type="password" placeholder="Passwort">
@@ -21,7 +25,7 @@
         <div class="headline-refs">
             <a (click)="showDataprotection()">Datenschutz</a>
             <a href="https://walter-doni.at">Walter Doni</a>
-            <a href="">Impressum</a>
+            <a (click)="showImprint()">Impressum</a>
         </div>
        
     </div>
