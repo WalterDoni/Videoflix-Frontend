@@ -1,0 +1,49 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+}
+
+.headline {
+    height: 140px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 24px;
+    font-weight: 800;
+
+    span {
+        padding: 75px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+    }
+}
+
+.data-protection {
+    background-color: #FFFFFF;
+    padding: 32px;
+    overflow-y: auto;
+    overflow-x: auto;
+    border-radius: 8px;
+    font-size: 18px;
+    gap: 24px;
+
+    h1,h2,h3{
+        padding: 16px 0px;
+    }
+}
+
+.arrow {
+    position: absolute;
+    right: 25px;
+    top: 25px;
+    cursor: pointer;
+
+    &:hover {
+        filter: invert(54%) sepia(48%) saturate(4557%) hue-rotate(215deg) brightness(102%) contrast(91%);
+        transform: scale(1.2);
+    }
+}
+
