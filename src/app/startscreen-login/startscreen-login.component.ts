@@ -29,7 +29,12 @@ showSignup(){
 }
 
 login(){
-  this.router.navigateByUrl('browse')
+  this.router.navigateByUrl('browse');
 }
+
+guestLogin(){
+  this.router.navigateByUrl('browse');
+}
+
 
 }
