@@ -12,7 +12,7 @@ export class MainpageComponent {
 
   videos: any[] = []; // Renamed to `videos` for clarity
 
-  constructor() { }
+  constructor() {  this.getVideos()}
 
   async getVideos() {
     const url = "http://127.0.0.1:8000/video/";
@@ -27,6 +27,7 @@ export class MainpageComponent {
       this.videos = data.map((video: any) => ({
         title: video.title,
         description: video.description,
+        category: video.category,
         file: "http://127.0.0.1:8000" + video.video_file
       }));
       console.log(this.videos);

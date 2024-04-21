@@ -41,9 +41,9 @@
 
 .content {
     height: calc(100vh - 100px);
-    
+
     button{
-        margin-top: 50%;
+        margin-top: 10%;
     }
 }
 
@@ -103,4 +103,16 @@
     width: 40px;
     height: 40px;
     cursor: pointer;
+}
+
+.video-div{
+  margin-top: 20%;
+
+  div{
+
+  video{
+    width: 400px;
+    height: 350px;
+  }
+  }
 }

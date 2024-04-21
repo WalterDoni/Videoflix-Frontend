@@ -1,35 +1,61 @@
 <div class="headline">
-    <div>
-        <span>
-        <img src="./assets/img/logo.png" alt="logo" class="logo">
-        <p>Videoflix</p>
-        </span>
-        <span class="navigation-span">
-            <p>Startseite</p>
-            <p>Serien</p>
-            <p>Filme</p>
-            <p>Meine Liste</p>
-            <p>Upload</p>
-        </span>
-    </div>
-    <span class="profile-span">
-        <img src="./assets/img/mainpage/search.png" alt="search" class="search">
-        <div>
-            <img src="./assets/img/blank-profile.png" alt="image" class="profile-img">
-            <img src="./assets/img/mainpage/keyboard_arrow_down.png" alt="arrow-down" class="arrow-down">
-        </div>
+  <div>
+    <span>
+      <img src="./assets/img/logo.png" alt="logo" class="logo">
+      <p>Videoflix</p>
     </span>
+    <span class="navigation-span">
+      <p>Startseite</p>
+      <p>Serien</p>
+      <p>Filme</p>
+      <p>Meine Liste</p>
+      <p>Upload</p>
+    </span>
+  </div>
+  <span class="profile-span">
+    <img src="./assets/img/mainpage/search.png" alt="search" class="search">
+    <div>
+      <img src="./assets/img/blank-profile.png" alt="image" class="profile-img">
+      <img src="./assets/img/mainpage/keyboard_arrow_down.png" alt="arrow-down" class="arrow-down">
+    </div>
+  </span>
 </div>
 
 <div class="content">
-    <button (click)="getVideos()">TESTBUTTON VIDEOS</button>
-   
-    <div style="margin-top: 60%;">
-        @for (vid of videos; track vid.file; let index = $index) {
-        <video controls>
-            <source [src]="vid.file" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    }
+  <div class="video-div">
+    <h2>Filme</h2>
+    @for (vid of videos; track vid.file; let index = $index) {
+    @if (vid.category == "movie") {
+    <div>
+      <video controls>
+        <source [src]="vid.file" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
     </div>
+    }}
+
+    <h2>Serien</h2>
+    @for (vid of videos; track vid.file; let index = $index) {
+    @if (vid.category == "series") {
+    <div>
+      <video controls>
+        <source [src]="vid.file" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    }}
+
+    <h2>Dokumentationen</h2>
+    @for (vid of videos; track vid.file; let index = $index) {
+    @if (vid.category == "documentation") {
+    <div>
+      <video controls>
+        <source [src]="vid.file" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    }}
+
+
+  </div>
 </div>
