@@ -106,13 +106,31 @@
 }
 
 .video-div{
-  margin-top: 20%;
+  margin-top: 10%;
+  padding-left: 24px;
 
   div{
+    border-radius: 10px;
+    padding: 24px 0px;
+
 
   video{
-    width: 400px;
-    height: 350px;
+    border-radius: 10px;
+
+
+
+    border-radius: 40px;
+    width: 370px;
+    height: 210px;
+    object-fit: cover;
+    transition: transform ease-in-out .2s;
+    box-shadow: 10px 10px 7px 0px rgb(0, 0,0, 0.5);
+
+    &:hover{
+      transform: scale(1.1);
+      cursor: pointer;
+
+    }
   }
   }
 }
