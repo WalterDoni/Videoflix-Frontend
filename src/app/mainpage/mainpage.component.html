@@ -1,40 +1,14 @@
-<div class="headline">
-  <div>
-    <span>
-      <img src="./assets/img/logo.png" alt="logo" class="logo">
-      <p>Videoflix</p>
-    </span>
-    <span class="navigation-span">
-      <p>Startseite</p>
-      <p>Serien</p>
-      <p>Filme</p>
-      <p>Meine Liste</p>
-      <p>Upload</p>
-    </span>
-  </div>
-  <span class="profile-span">
-    <img src="./assets/img/mainpage/search.png" alt="search" class="search">
-    <div>
-      <img src="./assets/img/blank-profile.png" alt="image" class="profile-img">
-      <img src="./assets/img/mainpage/keyboard_arrow_down.png" alt="arrow-down" class="arrow-down">
-    </div>
-  </span>
-</div>
+
+
+<app-header-menu></app-header-menu>
 
 <div class="content">
   <div class="video-div">
     <h2>Filme</h2>
     @for (vid of videos; track vid.file; let index = $index) {
     @if (vid.category == "movie") {
-      <div class="videoplayer" #videoplayer>
-        <video [src]="vid.file" type="video/mp4" #video ></video>
-        <div class="player-controls">
-          <button class="play-btn" title="Play" #playButton (click)="startOrStopMovie()">Play</button>
-        </div>
-        <input type="range" class="volume" min="0" max="1" step="0.01" value="1" #volume (input)="changeVolume()">
-        <div class="time">
-          <span class="current">0:00</span> / <span class="duration">0:00</span>
-        </div>
+      <div class="videoplayer" >
+        <video [src]="vid.file" controls type="video/mp4"></video>
       </div>
 
 
@@ -43,23 +17,21 @@
     <h2>Serien</h2>
     @for (vid of videos; track vid.file; let index = $index) {
     @if (vid.category == "series") {
-    <div class="videoplayer">
-      <video class="videoElement" [src]="vid.file" type="video/mp4">
-
-      </video>
-    </div>
+      <div class="videoplayer" >
+        <video [src]="vid.file" controls type="video/mp4"></video>
+      </div>
     }}
 
     <h2>Dokumentationen</h2>
     @for (vid of videos; track vid.file; let index = $index) {
     @if (vid.category == "documentation") {
-    <div class="videoplayer">
-      <video  [src]="vid.file" type="video/mp4">
-
-      </video>
-    </div>
+      <div class="videoplayer" >
+        <video [src]="vid.file" controls type="video/mp4"></video>
+      </div>
     }}
 
 
   </div>
 </div>
+
+<app-footer></app-footer>

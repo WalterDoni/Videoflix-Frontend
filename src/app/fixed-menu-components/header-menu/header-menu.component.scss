@@ -1,0 +1,86 @@
+.headline {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 32px;
+  font-weight: 800;
+  background-color: black;
+  color: #38b4ff;
+  box-shadow: 0px 0px 10px 10px rgb(0, 0,0, 0.5);
+  text-shadow:
+      0 0 7px #383bff,
+      0 0 10px #2b2fd1,
+      0 0 21px #2b2fd1,
+      0 0 42px #2b2fd1,
+      0 0 82px #2b2fd1,
+      0 0 92px #2b2fd1;
+
+  div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+}
+
+.headline span {
+  padding: 0px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.logo{
+  width: 40px;
+  height: 40px;
+}
+
+.navigation-span {
+  color: white;
+  text-shadow: none;
+  cursor: pointer;
+
+  p {
+      font-size: 18px !important;
+      color: white;
+      text-shadow: none;
+      font-size: 24px;
+      transition: color ease-in-out .2s, text-shadow ease-in-out .2s;
+
+      &:hover {
+          color: #38b4ff;
+          text-shadow:
+              0 0 7px #383bff,
+              0 0 10px #2b2fd1,
+              0 0 21px #2b2fd1,
+              0 0 42px #2b2fd1,
+              0 0 82px #2b2fd1,
+              0 0 92px #2b2fd1;
+      }
+  }
+}
+
+.search{
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(298deg) brightness(102%) contrast(102%);
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.profile-img {
+  object-fit: contain;
+  border-radius: 50%;
+  border: 3px solid white;
+  width: 50px;
+  height: 50px;
+}
+
+.arrow-down {
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(298deg) brightness(102%) contrast(102%);
+  width: 30px;
+  height: 30px;
+}

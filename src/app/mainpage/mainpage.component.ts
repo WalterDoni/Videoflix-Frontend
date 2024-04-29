@@ -1,39 +1,26 @@
-import { CommonModule } from '@angular/common';
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
+import { Component} from '@angular/core';
+import { HeaderMenuComponent } from '../fixed-menu-components/header-menu/header-menu.component';
+import { FooterComponent } from '../fixed-menu-components/footer/footer.component';
 
 @Component({
   selector: 'app-mainpage',
   standalone: true,
-  imports: [CommonModule],
+  imports: [HeaderMenuComponent, FooterComponent],
   templateUrl: './mainpage.component.html',
   styleUrl: './mainpage.component.scss',
 })
 
 export class MainpageComponent {
   videos: any[] = [];
-  @ViewChild('videoplayer') videoplayer!: ElementRef;
-  @ViewChild('video') video!: ElementRef;
-  @ViewChild('playButton') playButton!: ElementRef;
-  @ViewChild('volume') volume!: ElementRef;
 
-  constructor() {
+
+  constructor(private router: Router) {
     this.getVideos();
   }
 
-  startOrStopMovie() {
-    const videoElement = this.video.nativeElement as HTMLVideoElement;
-    if (videoElement.paused) {
-      videoElement.play();
-      this.playButton.nativeElement.textContent = "Pause";
-    } else {
-      videoElement.pause();
-      this.playButton.nativeElement.textContent = "Play";
-    }
-  }
-
-  changeVolume() {
-    const videoElement = this.video.nativeElement as HTMLVideoElement;
-    videoElement.volume = parseFloat(this.volume.nativeElement.value);
+  navigateToUpload(){
+    this.router.navigateByUrl('upload')
   }
 
   async getVideos() {
@@ -52,7 +39,6 @@ export class MainpageComponent {
         category: video.category,
         file: 'http://127.0.0.1:8000' + video.video_file,
       }));
-      console.log(this.videos);
     } catch (e) {
       console.log(e);
     }
