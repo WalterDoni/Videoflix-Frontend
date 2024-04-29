@@ -23,4 +23,7 @@ export class FooterComponent {
     this.router.navigateByUrl('imprint');
   }
 
+  showContactformular(){
+    this.router.navigateByUrl('contact')
+  }
 }

@@ -5,6 +5,7 @@ import { ImprintComponent } from './imprint/imprint.component';
 import { SignupComponent } from './signup/signup.component';
 import { MainpageComponent } from './mainpage/mainpage.component';
 import { UploadComponent } from './upload/upload.component';
+import { ContactFormularComponent } from './contact-formular/contact-formular.component';
 
 export const routes: Routes = [
     {path: '', component: StartscreenLoginComponent},
@@ -13,4 +14,5 @@ export const routes: Routes = [
     {path: 'signup', component: SignupComponent},
     {path: 'browse', component: MainpageComponent},
     {path: 'upload', component: UploadComponent},
+    {path:'contact', component: ContactFormularComponent}
 ];

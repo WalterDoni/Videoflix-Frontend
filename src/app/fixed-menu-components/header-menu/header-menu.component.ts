@@ -17,4 +17,8 @@ export class HeaderMenuComponent {
     this.router.navigateByUrl('upload')
   }
 
+  showBrowse(){
+    this.router.navigateByUrl('browse')
+  }
+
 }
