@@ -1,0 +1,16 @@
+<app-header-menu></app-header-menu>
+
+<div class="content">
+  <div class="video-div">
+    <h2>Filme</h2>
+    @for (vid of videos; track vid.file; let index = $index) {
+    @if (vid.category == "movie") {
+    <div class="videoplayer">
+      <video [src]="vid.file" controls type="video/mp4"></video>
+    </div>
+    }}
+
+  </div>
+</div>
+
+<app-footer></app-footer>

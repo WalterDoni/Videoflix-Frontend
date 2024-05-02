@@ -6,6 +6,9 @@ import { SignupComponent } from './signup/signup.component';
 import { MainpageComponent } from './mainpage/mainpage.component';
 import { UploadComponent } from './upload/upload.component';
 import { ContactFormularComponent } from './contact-formular/contact-formular.component';
+import { SeriesComponent } from './series/series.component';
+import { MovieComponent } from './movie/movie.component';
+import { DocumentationComponent } from './documentation/documentation.component';
 
 export const routes: Routes = [
     {path: '', component: StartscreenLoginComponent},
@@ -14,5 +17,8 @@ export const routes: Routes = [
     {path: 'signup', component: SignupComponent},
     {path: 'browse', component: MainpageComponent},
     {path: 'upload', component: UploadComponent},
+    {path: 'series', component: SeriesComponent},
+    {path: 'movies', component: MovieComponent},
+    {path: 'documentations', component: DocumentationComponent},
     {path:'contact', component: ContactFormularComponent}
 ];

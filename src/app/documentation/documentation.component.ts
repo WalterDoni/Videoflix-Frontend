@@ -1,27 +1,19 @@
-import { Router } from '@angular/router';
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
 import { HeaderMenuComponent } from '../fixed-menu-components/header-menu/header-menu.component';
 import { FooterComponent } from '../fixed-menu-components/footer/footer.component';
 
-
 @Component({
-  selector: 'app-mainpage',
+  selector: 'app-documentation',
   standalone: true,
   imports: [HeaderMenuComponent, FooterComponent],
-  templateUrl: './mainpage.component.html',
-  styleUrl: './mainpage.component.scss',
+  templateUrl: './documentation.component.html',
+  styleUrl: './documentation.component.scss'
 })
-
-export class MainpageComponent {
+export class DocumentationComponent {
   videos: any[] = [];
 
-
-  constructor(private router: Router) {
-    this.getVideos();
-  }
-
-  navigateToUpload(){
-    this.router.navigateByUrl('upload')
+  constructor() {
+    this.getVideos()
   }
 
   async getVideos() {

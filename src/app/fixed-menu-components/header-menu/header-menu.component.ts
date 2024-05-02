@@ -13,12 +13,23 @@ export class HeaderMenuComponent {
   constructor(private router: Router) {
   }
 
-  navigateToUpload(){
+  navigateToUpload() {
     this.router.navigateByUrl('upload')
   }
 
-  showBrowse(){
+  showBrowse() {
     this.router.navigateByUrl('browse')
   }
 
+  navigateToSeries() {
+    this.router.navigateByUrl('series')
+  }
+
+  navigateToMovie() {
+    this.router.navigateByUrl('movies')
+  }
+
+  navigateToDocumentation() {
+    this.router.navigateByUrl('documentations')
+  }
 }
