@@ -1,2 +1,21 @@
+<app-header-menu></app-header-menu>
+<div class="container">
 
-<h1>FUNKTIONIERT</h1>
+  <div class="form-container">
+    <h2>Hier können Sie ein neues Video hochladen, welches für alle Nutzer sichtbar ist.</h2>
+    <form action="submit">
+      <div>
+        <span>
+          <input type="text" placeholder="Titel...">
+          <input type="text" placeholder="Kategorie...">
+          <input type="file" (change)="uploadVideo($event)">
+        </span>
+        <span>
+          <textarea name="" id="" cols="30" rows="10" placeholder="Beschreibung..."></textarea>
+        </span>
+      </div>
+      <button>Hochladen</button>
+    </form>
+  </div>
+</div>
+<app-footer></app-footer>
