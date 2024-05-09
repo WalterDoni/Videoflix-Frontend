@@ -19,4 +19,8 @@ export class DropdownComponent {
   navigateToStartscreen(){
     this.router.navigateByUrl('');
   }
+
+  navigateToProfile(){
+    this.router.navigateByUrl('profile');
+  }
 }

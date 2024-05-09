@@ -9,16 +9,18 @@ import { ContactFormularComponent } from './contact-formular/contact-formular.co
 import { SeriesComponent } from './series/series.component';
 import { MovieComponent } from './movie/movie.component';
 import { DocumentationComponent } from './documentation/documentation.component';
+import { ChangeProfileComponent } from './change-profile/change-profile.component';
 
 export const routes: Routes = [
-    {path: '', component: StartscreenLoginComponent},
-    {path: 'dataprotection', component: DataprotectionComponent},
-    {path: 'imprint', component: ImprintComponent},
-    {path: 'signup', component: SignupComponent},
-    {path: 'browse', component: MainpageComponent},
-    {path: 'upload', component: UploadComponent},
-    {path: 'series', component: SeriesComponent},
-    {path: 'movies', component: MovieComponent},
-    {path: 'documentations', component: DocumentationComponent},
-    {path:'contact', component: ContactFormularComponent}
+  { path: '', component: StartscreenLoginComponent },
+  { path: 'dataprotection', component: DataprotectionComponent },
+  { path: 'imprint', component: ImprintComponent },
+  { path: 'signup', component: SignupComponent },
+  { path: 'browse', component: MainpageComponent },
+  { path: 'upload', component: UploadComponent },
+  { path: 'series', component: SeriesComponent },
+  { path: 'movies', component: MovieComponent },
+  { path: 'documentations', component: DocumentationComponent },
+  { path: 'contact', component: ContactFormularComponent },
+  { path: 'profile', component: ChangeProfileComponent},
 ];
