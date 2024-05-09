@@ -11,7 +11,7 @@
   background-color: black;
   color: #38b4ff;
   box-shadow: 0px 0px 10px 10px rgb(0, 0,0, 0.5);
-  z-index: 10;
+  z-index: 1;
   text-shadow:
       0 0 7px #383bff,
       0 0 10px #2b2fd1,
@@ -24,6 +24,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      cursor: pointer;
   }
 }
 
@@ -65,10 +66,34 @@
   }
 }
 
+.searchfield{
+  background-color: white;
+  border: 1px solid white ;
+  border-radius: 10px;
+  transition: 0.8s;
+
+  input{
+    width: 0;
+    border: none;
+    transition: 0.8s;
+
+    :active{
+      width: 200px;
+    }
+  }
+
+  &:hover{
+    input{
+      width: 200px;
+      transition: 0.8s;
+    }
+  }
+}
+
 .search{
   filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(298deg) brightness(102%) contrast(102%);
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   cursor: pointer;
 }
 
@@ -84,4 +109,9 @@
   filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(298deg) brightness(102%) contrast(102%);
   width: 30px;
   height: 30px;
+}
+
+.d-none{
+  display: none!important;
+
 }

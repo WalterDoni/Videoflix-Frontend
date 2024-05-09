@@ -13,11 +13,17 @@
       <p (click)="navigateToUpload()">Upload</p>
     </span>
   </div>
-  <span class="profile-span">
-    <img src="./assets/img/header/search.png" alt="search" class="search">
+  <span>
+    <div class="searchfield">
+      <input type="text" placeholder="Titel...">
+      <img src="./assets/img/header/search.png" alt="search" class="search">
+    </div>
+
     <div>
       <img src="./assets/img/blank-profile.png" alt="image" class="profile-img">
-      <img src="./assets/img/header/keyboard_arrow_down.png" alt="arrow-down" class="arrow-down">
+      <img src="./assets/img/header/keyboard_arrow_down.png" alt="arrow-down" class="arrow-down" (click)="toggleDropdown()">
+      <div class="d-none" #dropdown><app-dropdown></app-dropdown></div>
     </div>
   </span>
 </div>
+
