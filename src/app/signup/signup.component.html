@@ -15,12 +15,11 @@
       <h1>Registrierung</h1>
       <img src="/assets/img/signup/arrow_back.png" alt="" (click)="goToLoginPage()">
     </div>
-    <form (ngSubmit)="createNewUser()" #signupForm="ngForm">
+    <form (ngSubmit)="checkPasswordAndCreateNewUser()" #signupForm="ngForm">
       <input type="text" placeholder="Benutzername" [(ngModel)]="username" name="username" required>
       <input type="text" placeholder="E-mail" [(ngModel)]="email" name="email" required>
       <input type="password" placeholder="Passwort" [(ngModel)]="password" name="password" autocomplete="current-password" required>
       <input type="password" placeholder="Passwort wiederholen" [(ngModel)]="checkPassword" name="checkPassword" required>
-
       <div class="form-btn-container">
         <button type="submit" [disabled]="signupForm.form.invalid">Anmelden</button>
       </div>

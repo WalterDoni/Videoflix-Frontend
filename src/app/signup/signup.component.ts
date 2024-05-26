@@ -20,7 +20,7 @@ export class SignupComponent {
 
   }
 
-  createNewUser() {
+  checkPasswordAndCreateNewUser() {
     if (this.password === this.checkPassword) {
       this.createNewUserInBackend()
     } else {
