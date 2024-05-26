@@ -1,157 +1,160 @@
 body {
-    min-height: 100vh;
-    background-color: #011A27;
+  min-height: 100vh;
+  background-color: #011A27;
 }
 
 .headline-box {
-    position: absolute;
-    top: 20%;
-    animation: loadInAnimation 2s ease-in forwards;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
+  position: absolute;
+  top: 20%;
+  animation: loadInAnimation 2s ease-in forwards;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  z-index: 2;
+
+  h1 {
+    font-size: 64px;
+    font-weight: bold;
+    color: #38b4ff;
+    text-shadow:
+      0 0 7px #383bff,
+      0 0 10px #2b2fd1,
+      0 0 21px #2b2fd1,
+      0 0 42px #2b2fd1,
+      0 0 82px #2b2fd1,
+      0 0 92px #ffffff;
     z-index: 2;
+  }
 
-    h1 {
-        font-size: 64px;
-        font-weight: bold;
-        color: #38b4ff;
-        text-shadow:
-            0 0 7px #383bff,
-            0 0 10px #2b2fd1,
-            0 0 21px #2b2fd1,
-            0 0 42px #2b2fd1,
-            0 0 82px #2b2fd1,
-            0 0 92px #ffffff;
-        z-index: 2;
-    }
-
-    img {
-        width: 60px;
-        height: 60px;
-    }
+  img {
+    width: 60px;
+    height: 60px;
+  }
 
 }
 
 .container {
-    display: flex;
-    justify-content: center;
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
 }
 
-.headline-content{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.headline-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-    img{
-      
-        padding-left: 24px;
-        width: 24px;
-        height: 24px;
-        cursor: pointer;
-        filter: invert(96%) sepia(30%) saturate(85%) hue-rotate(8deg) brightness(104%) contrast(104%);
+  img {
 
-        &:hover {
-            filter: invert(54%) sepia(48%) saturate(4557%) hue-rotate(215deg) brightness(102%) contrast(91%);
-            transform: scale(1.2);
-        }
+    padding-left: 24px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    filter: invert(96%) sepia(30%) saturate(85%) hue-rotate(8deg) brightness(104%) contrast(104%);
+
+    &:hover {
+      filter: invert(54%) sepia(48%) saturate(4557%) hue-rotate(215deg) brightness(102%) contrast(91%);
+      transform: scale(1.2);
     }
+  }
 }
 
 .video-container {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    overflow: hidden;
-    z-index: -1;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: -1;
 }
 
 .video-background {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .login-container {
-    position: absolute;
-    top: 40%;
-    z-index: 2;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    gap: 20px;
-    border-radius: 20px;
-    width: 510px;
-    height: 400px;
-    animation: loadInAnimation 1.8s ease-in forwards;
+  position: absolute;
+  top: 40%;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  border-radius: 20px;
+  width: 510px;
+  height: 400px;
+  animation: loadInAnimation 1.8s ease-in forwards;
+  color: white;
+
+  h1 {
+    padding: 10px;
     color: white;
 
-    h1 {
-        padding: 10px;
+  }
+
+  form {
+    padding: 0px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 95%;
+
+    input {
+      padding: 10px 45px;
+      border-radius: 10px;
+      border-color: black;
+      font-size: 16px;
+      background-repeat: no-repeat;
+      background-position: 4%;
+
+      &:nth-child(1) {
+        background-image: url('/assets/img/login/person_filled.png');
+      }
+
+      &:nth-child(2) {
+        background-image: url('/assets/img/login/mail.png');
+      }
+
+      &:nth-child(3) {
+        background-image: url('/assets/img/login/lock.png');
+      }
+
+      &:nth-child(4) {
+        background-image: url('/assets/img/login/lock.png');
+      }
+    }
+
+    button {
+      padding: 8px 10px;
+      border-radius: 10px;
+      border-color: black;
+      color: black;
+      cursor: pointer;
+      transition: background-color ease-in-out .2s, color ease-in-out .2s, box-shadow ease-in-out .2s;
+      width: 70%;
+
+      &:hover {
         color: white;
-
+        background-color: #38b4ff;
+        box-shadow:
+          0 0 7px #383bff,
+          0 0 10px #2b2fd1,
+          0 0 21px #2b2fd1,
+      }
     }
-
-    form {
-        padding: 0px 10px;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        width: 95%;
-
-        input {
-            padding: 10px 45px;
-            border-radius: 10px;
-            border-color: black;
-            font-size: 16px;
-            background-repeat: no-repeat;
-            background-position: 4%;
-
-            &:first-child {
-                background-image: url('/assets/img/login/mail.png');
-            }
-
-            &:nth-child(2) {
-                background-image: url('/assets/img/login/lock.png');
-            }
-
-            &:nth-child(3) {
-                background-image: url('/assets/img/login/lock.png');
-            }
-        }
-
-        button {
-            padding: 8px 10px;
-            border-radius: 10px;
-            border-color: black;
-            color: black;
-            cursor: pointer;
-            transition: background-color ease-in-out .2s, color ease-in-out .2s, box-shadow ease-in-out .2s;
-            width: 70%;
-
-            &:hover {
-                color: white;
-                background-color: #38b4ff;
-                box-shadow:
-                    0 0 7px #383bff,
-                    0 0 10px #2b2fd1,
-                    0 0 21px #2b2fd1,
-            }
-        }
-    }
+  }
 }
 
 .form-btn-container {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    gap: 5px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 5px;
 }
-
