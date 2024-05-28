@@ -3,18 +3,18 @@
 
   <div class="form-container">
     <h2>Hier können Sie ein neues Video hochladen, welches für alle Nutzer sichtbar ist.</h2>
-    <form action="submit">
+    <form (ngSubmit)="onSubmit()" #uploadForm="ngForm">
       <div>
         <span>
-          <input type="text" placeholder="Titel...">
-          <input type="text" placeholder="Kategorie...">
-          <input  class="file-input" type="file" (change)="uploadVideo($event)">
+          <input type="text" placeholder="Titel..." [(ngModel)]="title" name="title" required>
+          <input type="text" placeholder="Kategorie..." [(ngModel)]="category" name="category" required>
+          <input class="file-input" type="file" (change)="onFileChange($event)" required>
         </span>
         <span>
-          <textarea name="" id="" cols="30" rows="10" placeholder="Beschreibung..."></textarea>
+          <textarea name="description" [(ngModel)]="description" id="description" cols="30" rows="10" placeholder="Beschreibung..." required></textarea>
         </span>
       </div>
-      <button>Hochladen</button>
+      <button type="submit" [disabled]="uploadForm.form.invalid">Hochladen</button>
     </form>
   </div>
 </div>

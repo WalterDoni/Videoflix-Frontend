@@ -10,15 +10,13 @@ import { FooterComponent } from '../fixed-menu-components/footer/footer.componen
   styleUrl: './upload.component.scss'
 })
 export class UploadComponent {
-  uploadedImg: any = {};
+
+  title!: string;
+  category!: string;
+  description!: string;
+  file!: File;
 
   constructor() { }
 
 
-
-
-  uploadVideo(event: any) {
-    this.uploadedImg = event.target.files[0];
-
-  }
 }
