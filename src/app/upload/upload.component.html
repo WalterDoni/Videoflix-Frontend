@@ -1,6 +1,5 @@
 <app-header-menu></app-header-menu>
 <div class="container">
-
   <div class="form-container">
     <h2>Hier können Sie ein neues Video hochladen, welches für alle Nutzer sichtbar ist.</h2>
     <form (ngSubmit)="onSubmit()" #uploadForm="ngForm">
@@ -11,7 +10,7 @@
           <input class="file-input" type="file" (change)="onFileChange($event)" required>
         </span>
         <span>
-          <textarea name="description" [(ngModel)]="description" id="description" cols="30" rows="10" placeholder="Beschreibung..." required></textarea>
+          <textarea [(ngModel)]="description" name="description" id="description" cols="30" rows="10" placeholder="Beschreibung..." required></textarea>
         </span>
       </div>
       <button type="submit" [disabled]="uploadForm.form.invalid">Hochladen</button>
