@@ -53,7 +53,7 @@ export class SignupComponent {
       }
 
     } catch (e) {
-      alert("Bitte kontrollieren Sie nochmal Ihre Eingabe");
+      alert("Bitte kontrollieren Sie nochmals Ihre Eingabe");
     }
   }
 

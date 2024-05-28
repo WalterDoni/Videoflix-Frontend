@@ -1,40 +1,82 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-startscreen-login',
   standalone: true,
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './startscreen-login.component.html',
   styleUrl: './startscreen-login.component.scss'
 })
 export class StartscreenLoginComponent {
 
-constructor(private router: Router){
+  username: string = '';
+  password: string = '';
+  userID: string = '';
 
-}
+  constructor(private router: Router) {
+
+  }
 
 
-//--Navigation--//
-showDataprotection(){
-  this.router.navigateByUrl('dataprotection');
-} 
+  async userLogin() {
+    const url = `http://127.0.0.1:8000/login/`;
 
-showImprint(){
-  this.router.navigateByUrl('imprint');
-}
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username: this.username,
+          password: this.password
+        }),
+      });
+      if (response.ok || response.status === 200) {
+        const data = await response.json();
+        this.userID = data.user_id;
+        this.router.navigateByUrl(`browse/${this.userID}`);
+      }
+    } catch (e) {
+      alert("Bitte kontrollioeren Sie nochmal Ihre Eingabe")
+    }
+  }
 
-showSignup(){
-  this.router.navigateByUrl('signup');
-}
+  async guestLogin() {
+    const url = `http://127.0.0.1:8000/login/`;
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username: "Gast",
+        password: "Gast1234",
+      }),
+    });
+    if (response.ok || response.status === 200) {
+      const data = await response.json();
+      this.userID = data.user_id;
+      this.router.navigateByUrl(`browse/${this.userID}`);
+    }
+  }
 
-login(){
-  this.router.navigateByUrl('browse');
-}
+  //--Navigation--//
+  showDataprotection() {
+    this.router.navigateByUrl('dataprotection');
+  }
 
-guestLogin(){
-  this.router.navigateByUrl('browse');
-}
+  showImprint() {
+    this.router.navigateByUrl('imprint');
+  }
+
+  showSignup() {
+    this.router.navigateByUrl('signup');
+  }
+
+
 
 
 }

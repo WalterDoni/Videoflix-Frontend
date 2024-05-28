@@ -1,7 +1,8 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { DropdownComponent } from '../dropdown/dropdown.component';
-
+import { ActivatedRoute } from '@angular/router';
+import { log } from 'console';
 
 @Component({
   selector: 'app-header-menu',
@@ -12,10 +13,20 @@ import { DropdownComponent } from '../dropdown/dropdown.component';
 })
 export class HeaderMenuComponent {
 
-  @ViewChild('dropdown')dropdown!: ElementRef;
+  @ViewChild('dropdown') dropdown!: ElementRef;
+  userID: string = 'error';
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private route: ActivatedRoute) {
   }
+
+
+  ngOnInit(): void {
+    const userIdFromRoute = this.route.snapshot.paramMap.get('userId');
+    if (userIdFromRoute) {
+      this.userID = userIdFromRoute;
+    }
+  }
+
 
   toggleDropdown() {
     const dropdownElement = this.dropdown.nativeElement;
@@ -28,22 +39,22 @@ export class HeaderMenuComponent {
 
 
   navigateToUpload() {
-    this.router.navigateByUrl('upload')
+    this.router.navigateByUrl(`upload/${this.userID}`)
   }
 
   showBrowse() {
-    this.router.navigateByUrl('browse')
+    this.router.navigateByUrl(`browse/${this.userID}`)
   }
 
   navigateToSeries() {
-    this.router.navigateByUrl('series')
+    this.router.navigateByUrl(`series/${this.userID}`)
   }
 
   navigateToMovie() {
-    this.router.navigateByUrl('movies')
+    this.router.navigateByUrl(`movies/${this.userID}`)
   }
 
   navigateToDocumentation() {
-    this.router.navigateByUrl('documentations')
+    this.router.navigateByUrl(`documentations/${this.userID}`)
   }
 }

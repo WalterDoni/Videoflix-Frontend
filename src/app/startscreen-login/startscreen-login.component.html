@@ -9,24 +9,23 @@
         <img src="./assets/img/logo.png" alt="">
         <h1>VIDEOFLIX</h1>
     </div>
-    
+
     <div class="login-container">
             <h1>Einloggen</h1>
-        <form action="submit">
-            <input type="text" placeholder="E-mail" >
-            <input type="password" placeholder="Passwort">
+        <form (ngSubmit)="userLogin()" #loginForm="ngForm">
+            <input type="text" placeholder="Benutzername" [(ngModel)]="username" name="username" required>
+            <input type="password" placeholder="Passwort" [(ngModel)]="password" name="password" required>
             <div class="form-btn-container">
-                <button (click)="login()">Login</button>
-                <button (click)="guestLogin()">Gäste-Login</button>
+                <button type="submit" [disabled]="loginForm.form.invalid">Login</button>
             </div>
-
         </form>
+        <button (click)="guestLogin()">Gäste-Login</button>
         <div style="padding: 10px;"> Kein Account? <a (click)="showSignup()" class="register-href">Zur Registrierung</a></div>
         <div class="headline-refs">
             <a (click)="showDataprotection()">Datenschutz</a>
             <a href="https://walter-doni.at">Walter Doni</a>
             <a (click)="showImprint()">Impressum</a>
         </div>
-       
+
     </div>
 </div>

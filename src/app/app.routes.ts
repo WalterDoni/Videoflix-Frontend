@@ -13,14 +13,14 @@ import { ChangeProfileComponent } from './change-profile/change-profile.componen
 
 export const routes: Routes = [
   { path: '', component: StartscreenLoginComponent },
+  { path: 'signup', component: SignupComponent },
+  { path: 'browse/:userId', component: MainpageComponent },
+  { path: 'upload/:userId', component: UploadComponent },
+  { path: 'series/:userId', component: SeriesComponent },
+  { path: 'movies/:userId', component: MovieComponent },
+  { path: 'documentations/:userId', component: DocumentationComponent },
+  { path: 'profile/:userId', component: ChangeProfileComponent},
   { path: 'dataprotection', component: DataprotectionComponent },
   { path: 'imprint', component: ImprintComponent },
-  { path: 'signup', component: SignupComponent },
-  { path: 'browse', component: MainpageComponent },
-  { path: 'upload', component: UploadComponent },
-  { path: 'series', component: SeriesComponent },
-  { path: 'movies', component: MovieComponent },
-  { path: 'documentations', component: DocumentationComponent },
   { path: 'contact', component: ContactFormularComponent },
-  { path: 'profile', component: ChangeProfileComponent},
 ];
