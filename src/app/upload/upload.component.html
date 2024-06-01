@@ -2,7 +2,7 @@
 <div class="container">
   <div class="form-container">
     <h2>Hier können Sie ein neues Video hochladen, welches für alle Nutzer sichtbar ist.</h2>
-    <form (ngSubmit)="onSubmit()" #uploadForm="ngForm">
+    <form (ngSubmit)="uploadNewMovie()" #uploadForm="ngForm">
       <div>
         <span>
           <input type="text" placeholder="Titel..." [(ngModel)]="title" name="title" required>
