@@ -1,187 +1,202 @@
 body {
-    min-height: 100vh;
-    background-color: #011A27;
+  min-height: 100vh;
+  background-color: #011A27;
 }
 
 .headline-box {
-    position: absolute;
-    top: 20%;
-    animation: loadInAnimation 2s ease-in forwards;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
+  position: absolute;
+  top: 20%;
+  animation: loadInAnimation 2s ease-in forwards;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  z-index: 2;
+
+  h1 {
+    font-size: 64px;
+    font-weight: bold;
+    color: #38b4ff;
+    text-shadow:
+      0 0 7px #383bff,
+      0 0 10px #2b2fd1,
+      0 0 21px #2b2fd1,
+      0 0 42px #2b2fd1,
+      0 0 82px #2b2fd1,
+      0 0 92px #2b2fd1;
     z-index: 2;
+  }
 
-    h1 {
-        font-size: 64px;
-        font-weight: bold;
-        color: #38b4ff;
-        text-shadow:
-            0 0 7px #383bff,
-            0 0 10px #2b2fd1,
-            0 0 21px #2b2fd1,
-            0 0 42px #2b2fd1,
-            0 0 82px #2b2fd1,
-            0 0 92px #2b2fd1;
-        z-index: 2;
-    }
-
-    img {
-        width: 60px;
-        height: 60px;
-    }
+  img {
+    width: 60px;
+    height: 60px;
+  }
 
 }
 
 .container {
-    display: flex;
-    justify-content: center;
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .video-container {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    overflow: hidden;
-    z-index: -1;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: -1;
 }
 
 .video-background {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .login-container {
-    position: absolute;
-    top: 40%;
-    z-index: 2;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    gap: 20px;
-    border-radius: 20px;
-    width: 510px;
-    height: 400px;
-    animation: loadInAnimation 1.8s ease-in forwards;
+  position: absolute;
+  top: 40%;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  border-radius: 20px;
+  width: 510px;
+  height: 400px;
+  animation: loadInAnimation 1.8s ease-in forwards;
+  color: white;
+
+  h1 {
+    padding: 10px;
     color: white;
 
-    h1 {
-        padding: 10px;
+  }
+
+  form {
+    padding: 0px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 95%;
+
+    input {
+      padding: 10px 45px;
+      border-radius: 10px;
+      border-color: black;
+      font-size: 16px;
+      background-repeat: no-repeat;
+      background-position: 4%;
+
+      &:first-child {
+        background-image: url('/assets/img/login/person_filled.png');
+      }
+
+      &:nth-child(2) {
+        background-image: url('/assets/img/login/lock.png');
+      }
+    }
+
+    button {
+      padding: 8px 10px;
+      border-radius: 10px;
+      border-color: black;
+      color: black;
+      cursor: pointer;
+      transition: background-color ease-in-out .2s, color ease-in-out .2s, box-shadow ease-in-out .2s;
+      width: 70%;
+
+      &:hover {
         color: white;
-
+        background-color: #38b4ff;
+        box-shadow:
+          0 0 7px #383bff,
+          0 0 10px #2b2fd1,
+          0 0 21px #2b2fd1,
+      }
     }
-
-    form {
-        padding: 0px 10px;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        width: 95%;
-
-        input {
-            padding: 10px 45px;
-            border-radius: 10px;
-            border-color: black;
-            font-size: 16px;
-            background-repeat: no-repeat;
-            background-position: 4%;
-
-            &:first-child {
-                background-image: url('/assets/img/login/person_filled.png');
-            }
-
-            &:nth-child(2) {
-                background-image: url('/assets/img/login/lock.png');
-            }
-        }
-
-        button {
-            padding: 8px 10px;
-            border-radius: 10px;
-            border-color: black;
-            color: black;
-            cursor: pointer;
-            transition: background-color ease-in-out .2s, color ease-in-out .2s, box-shadow ease-in-out .2s;
-            width: 70%;
-
-            &:hover {
-                color: white;
-                background-color: #38b4ff;
-                box-shadow:
-                    0 0 7px #383bff,
-                    0 0 10px #2b2fd1,
-                    0 0 21px #2b2fd1,
-            }
-        }
-    }
+  }
 }
 
-
-
 .form-btn-container {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    gap: 5px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.guest-btn {
+  padding: 8px 10px;
+  border-radius: 10px;
+  border-color: black;
+  color: black;
+  cursor: pointer;
+  transition: background-color ease-in-out 0.2s, color ease-in-out 0.2s, box-shadow ease-in-out 0.2s;
+  width: 70%;
+
+  &:hover {
+    color: white;
+    background-color: #38b4ff;
+    box-shadow:
+      0 0 7px #383bff,
+      0 0 10px #2b2fd1,
+      0 0 21px #2b2fd1,
+  }
 }
 
 .register-href {
-    text-decoration: none;
-    color: #38b4ff;
-    position: relative;
-    cursor: pointer;
+  text-decoration: none;
+  color: #38b4ff;
+  position: relative;
+  cursor: pointer;
 
 
-    &::after {
-        content: '';
-        position: absolute;
-        left: 0;
-        bottom: -1px;
-        width: 100%;
-        height: 1px;
-        background-color: #38b4ff;
-        transition: bottom ease-in-out .2s, opacity ease-in-out .2s;
-        opacity: 0;
-    }
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 100%;
+    height: 1px;
+    background-color: #38b4ff;
+    transition: bottom ease-in-out .2s, opacity ease-in-out .2s;
+    opacity: 0;
+  }
 
-    &:hover::after {
-        bottom: -5px;
-        opacity: 1;
-    }
+  &:hover::after {
+    bottom: -5px;
+    opacity: 1;
+  }
 }
 
 .headline-refs {
-    width: 90%;
-    padding: 10px;
-    display: flex;
-    justify-content: space-around;
-    cursor: pointer;
+  width: 90%;
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+  cursor: pointer;
 
-    a {
-        text-decoration: none;
-        color: white;
-        transition: color ease-in-out .2s;
+  a {
+    text-decoration: none;
+    color: white;
+    transition: color ease-in-out .2s;
 
-        &:hover {
-            color: #38b4ff;
-            text-shadow:
-                0 0 7px #383bff,
-                0 0 10px #2b2fd1,
-                0 0 21px #2b2fd1,
-                0 0 42px #2b2fd1,
-                0 0 82px #2b2fd1,
-                0 0 92px #2b2fd1;
+    &:hover {
+      color: #38b4ff;
+      text-shadow:
+        0 0 7px #383bff,
+        0 0 10px #2b2fd1,
+        0 0 21px #2b2fd1,
+        0 0 42px #2b2fd1,
+        0 0 82px #2b2fd1,
+        0 0 92px #2b2fd1;
 
-        }
     }
+  }
 }
-
-

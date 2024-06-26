@@ -32,30 +32,28 @@ export class SignupComponent {
   async createNewUserInBackend() {
     const url = `http://127.0.0.1:8000/signup/`;
     try {
-      const response = await fetch(url, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          username: this.username,
-          email: this.email,
-          password: this.password,
-          phone: "-",
-          address: "-",
-          zipcode: "-",
-          city: "-",
-          country: "-",
-        }),
-      });
-      if (response.ok || response.status === 200) {
-        this.goToLoginPage();
-      }
-
+        const response = await fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                username: this.username.trim(),
+                email: this.email.trim(),
+                password: this.password,
+            }),
+        });
+        if (response.ok) {
+            this.goToLoginPage();
+        } else {
+            const errorData = await response.json();
+            alert(`Fehler: ${JSON.stringify(errorData)}`);
+        }
     } catch (e) {
-      alert("Bitte kontrollieren Sie nochmals Ihre Eingabe");
+        alert("Bitte kontrollieren Sie nochmals Ihre Eingabe");
     }
-  }
+}
+
 
 
   goToLoginPage() {

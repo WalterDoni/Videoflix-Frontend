@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class StartscreenLoginComponent {
 
-  username: string = '';
+  email: string = '';
   password: string = '';
   userID: string = '';
 
@@ -19,30 +19,29 @@ export class StartscreenLoginComponent {
 
   }
 
-
   async userLogin() {
     const url = `http://127.0.0.1:8000/login/`;
 
     try {
-      const response = await fetch(url, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          username: this.username,
-          password: this.password
-        }),
-      });
-      if (response.ok || response.status === 200) {
-        const data = await response.json();
-        this.userID = data.user_id;
-        this.router.navigateByUrl(`browse/${this.userID}`);
-      }
+        const response = await fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                email: this.email, // E-Mail-Feld beibehalten
+                password: this.password
+            }),
+        });
+        if (response.ok || response.status === 200) {
+            const data = await response.json();
+            this.userID = data.user_id;
+            this.router.navigateByUrl(`browse/${this.userID}`);
+        }
     } catch (e) {
-      alert("Bitte kontrollioeren Sie nochmal Ihre Eingabe")
+        alert("Bitte kontrollieren Sie nochmal Ihre Eingabe")
     }
-  }
+}
 
   async guestLogin() {
     const url = `http://127.0.0.1:8000/login/`;
@@ -52,7 +51,7 @@ export class StartscreenLoginComponent {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        username: "Gast",
+        email: "gast@gast.at",
         password: "Gast1234",
       }),
     });

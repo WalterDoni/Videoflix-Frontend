@@ -13,13 +13,13 @@
     <div class="login-container">
             <h1>Einloggen</h1>
         <form (ngSubmit)="userLogin()" #loginForm="ngForm">
-            <input type="text" placeholder="Benutzername" [(ngModel)]="username" name="username" required>
+            <input type="text" placeholder="E-Mail-Adresse" [(ngModel)]="email" name="email" required>
             <input type="password" placeholder="Passwort" [(ngModel)]="password" name="password" required>
             <div class="form-btn-container">
                 <button type="submit" [disabled]="loginForm.form.invalid">Login</button>
             </div>
         </form>
-        <button (click)="guestLogin()">Gäste-Login</button>
+        <button class="guest-btn" (click)="guestLogin()">Gäste-Login</button>
         <div style="padding: 10px;"> Kein Account? <a (click)="showSignup()" class="register-href">Zur Registrierung</a></div>
         <div class="headline-refs">
             <a (click)="showDataprotection()">Datenschutz</a>

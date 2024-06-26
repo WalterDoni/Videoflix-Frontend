@@ -25,6 +25,7 @@ export class MainpageComponent {
   }
 
   async getVideos() {
+    debugger
     const url = 'http://127.0.0.1:8000/video/';
     try {
       const response = await fetch(url, {
@@ -34,12 +35,14 @@ export class MainpageComponent {
         },
       });
       const data = await response.json();
+      console.log('Response data:', data);
       this.videos = data.map((video: any) => ({
         title: video.title,
         description: video.description,
         category: video.category,
         file: 'http://127.0.0.1:8000' + video.video_file,
       }));
+      console.log(this.videos)
     } catch (e) {
       console.log(e);
     }

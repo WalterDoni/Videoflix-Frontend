@@ -28,7 +28,7 @@ export class UploadComponent {
   }
 
   async uploadNewMovie() {
-    debugger
+
     const url = `http://127.0.0.1:8000/video/`;
     const currentDate = new Date().toISOString().split('T')[0];
 
