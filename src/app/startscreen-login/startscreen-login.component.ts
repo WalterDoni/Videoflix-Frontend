@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-startscreen-login',
   standalone: true,
@@ -14,9 +15,9 @@ export class StartscreenLoginComponent {
   email: string = '';
   password: string = '';
   userID: string = '';
+  username: string = '';
 
   constructor(private router: Router) {
-
   }
 
   async userLogin() {
@@ -35,6 +36,7 @@ export class StartscreenLoginComponent {
         });
         if (response.ok || response.status === 200) {
             const data = await response.json();
+
             this.userID = data.user_id;
             this.router.navigateByUrl(`browse/${this.userID}`);
         }
@@ -57,7 +59,10 @@ export class StartscreenLoginComponent {
     });
     if (response.ok || response.status === 200) {
       const data = await response.json();
+      console.log(data);
+
       this.userID = data.user_id;
+      this.username = data.username;
       this.router.navigateByUrl(`browse/${this.userID}`);
     }
   }
