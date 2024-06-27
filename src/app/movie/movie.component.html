@@ -1,8 +1,8 @@
 <app-header-menu></app-header-menu>
 
 <div class="content">
+  <h2>Filme</h2>
   <div class="video-div">
-    <h2>Filme</h2>
     @for (vid of videos; track vid.file; let index = $index) {
     @if (vid.category == "movie") {
     <div class="videoplayer">

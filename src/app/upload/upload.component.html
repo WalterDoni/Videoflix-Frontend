@@ -1,18 +1,20 @@
 <app-header-menu></app-header-menu>
 <div class="container">
+  <div class="upload">
+    <div>Dein Upload war erfolgreich</div></div>
   <div class="form-container">
     <h2>Hier können Sie ein neues Video hochladen, welches für alle Nutzer sichtbar ist.</h2>
     <form (ngSubmit)="uploadNewMovie()" #uploadForm="ngForm">
       <div>
         <span>
           <input type="text" placeholder="Titel..." [(ngModel)]="title" name="title" required>
-          <input type="text" placeholder="Kategorie..." [(ngModel)]="category" name="category" required>
           <select class="file-input" (change)="onSelectionChange($event)" required>
             <option value="" disabled selected>Wählen Sie eine Kategorie aus</option>
             @for( category of categories; track category){
             <option>{{category}}</option>
             }
           </select>
+          <input class="file-input" type="file" (change)="onFileChange($event)" required>
         </span>
         <span>
           <textarea [(ngModel)]="description" name="description" id="description" cols="30" rows="10" placeholder="Beschreibung..." required></textarea>

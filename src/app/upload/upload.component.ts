@@ -15,42 +15,59 @@ export class UploadComponent {
   title!: string;
   category!: string;
   description!: string;
-  file!: string;
+  file!: File;
   categories: string[] = ['Film', 'Serie', 'Dokumentation']
   constructor() { }
 
   onSelectionChange(event: any) {
     const selectedFile = event.target.value;
     if (selectedFile === "Film") {
-      this.file = "movie";
+      this.category = "movie";
     } else if (selectedFile === "Serie") {
-      this.file = "series";
+      this.category = "series";
     } else {
-      this.file = "documentation";
+      this.category = "documentation";
     }
   }
 
-  async uploadNewMovie() {
-    const url = `http://127.0.0.1:8000/video/`;
-    const currentDate = new Date().toISOString().split('T')[0];
-    const formData = new FormData();
-    formData.append('created_at', currentDate);
-    formData.append('title', this.title);
-    formData.append('description', this.description);
-    formData.append('category', this.category);
-    formData.append('video_file', this.file);
-    try {
-      const response = await fetch(url, {
-        method: "POST",
-        body: formData,
-      });
+  onFileChange(event: any) {
+    const fileInput = event.target as HTMLInputElement;
+    if (fileInput.files && fileInput.files.length > 0) {
+      this.file = fileInput.files[0];
+      console.log('Selected file:', this.file);
+    }}
 
-      if (response.ok || response.status === 200) {
-        console.log("Upload erfolgreich");
+    async uploadNewMovie() {
+      const url = `http://127.0.0.1:8000/video/`;
+      const currentDate = new Date().toISOString().split('T')[0];
+      const feedback = document.querySelector('.upload') as HTMLElement | null;
+      const formData = new FormData();
+      formData.append('created_at', currentDate);
+      formData.append('title', this.title);
+      formData.append('description', this.description);
+      formData.append('category', this.category);
+      formData.append('video_file', this.file);
+
+      try {
+        const response = await fetch(url, {
+          method: "POST",
+          body: formData,
+        });
+        if (response.ok || response.status === 200) {
+          if (feedback) {
+            feedback.style.display = "flex";
+            setTimeout(() => {
+              if (feedback) {
+                feedback.style.display = 'none';
+              }
+            }, 3000);
+          }
+          console.log("Upload erfolgreich");
+        }
+      } catch (e) {
+        console.log("Fehler beim Upload:", e);
       }
-    } catch (e) {
-      console.log("Fehler beim Upload:", e);
     }
-  }
+
 
 }
