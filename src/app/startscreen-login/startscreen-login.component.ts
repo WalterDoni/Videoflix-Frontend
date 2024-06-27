@@ -59,8 +59,6 @@ export class StartscreenLoginComponent {
     });
     if (response.ok || response.status === 200) {
       const data = await response.json();
-      console.log(data);
-
       this.userID = data.user_id;
       this.username = data.username;
       this.router.navigateByUrl(`browse/${this.userID}`);

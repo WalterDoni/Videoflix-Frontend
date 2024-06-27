@@ -7,7 +7,12 @@
         <span>
           <input type="text" placeholder="Titel..." [(ngModel)]="title" name="title" required>
           <input type="text" placeholder="Kategorie..." [(ngModel)]="category" name="category" required>
-          <input class="file-input" type="file" (change)="onFileChange($event)" required>
+          <select class="file-input" (change)="onSelectionChange($event)" required>
+            <option value="" disabled selected>Wählen Sie eine Kategorie aus</option>
+            @for( category of categories; track category){
+            <option>{{category}}</option>
+            }
+          </select>
         </span>
         <span>
           <textarea [(ngModel)]="description" name="description" id="description" cols="30" rows="10" placeholder="Beschreibung..." required></textarea>
