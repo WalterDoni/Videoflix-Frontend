@@ -10,21 +10,21 @@
   font-weight: 800;
   background-color: black;
   color: #38b4ff;
-  box-shadow: 0px 0px 10px 10px rgb(0, 0,0, 0.5);
+  box-shadow: 0px 0px 10px 10px rgb(0, 0, 0, 0.5);
   z-index: 1;
   text-shadow:
-      0 0 7px #383bff,
-      0 0 10px #2b2fd1,
-      0 0 21px #2b2fd1,
-      0 0 42px #2b2fd1,
-      0 0 82px #2b2fd1,
-      0 0 92px #2b2fd1;
+    0 0 7px #383bff,
+    0 0 10px #2b2fd1,
+    0 0 21px #2b2fd1,
+    0 0 42px #2b2fd1,
+    0 0 82px #2b2fd1,
+    0 0 92px #2b2fd1;
 
   div {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
   }
 }
 
@@ -36,7 +36,7 @@
   gap: 16px;
 }
 
-.logo{
+.logo {
   width: 40px;
   height: 40px;
 }
@@ -47,54 +47,23 @@
   cursor: pointer;
 
   p {
-      font-size: 18px !important;
-      color: white;
-      text-shadow: none;
-      font-size: 24px;
-      transition: color ease-in-out .2s, text-shadow ease-in-out .2s;
+    font-size: 18px !important;
+    color: white;
+    text-shadow: none;
+    font-size: 24px;
+    transition: color ease-in-out .2s, text-shadow ease-in-out .2s;
 
-      &:hover {
-          color: #38b4ff;
-          text-shadow:
-              0 0 7px #383bff,
-              0 0 10px #2b2fd1,
-              0 0 21px #2b2fd1,
-              0 0 42px #2b2fd1,
-              0 0 82px #2b2fd1,
-              0 0 92px #2b2fd1;
-      }
-  }
-}
-
-.searchfield{
-  background-color: white;
-  border: 1px solid white ;
-  border-radius: 10px;
-  transition: 0.8s;
-
-  input{
-    width: 0;
-    border: none;
-    transition: 0.8s;
-
-    :active{
-      width: 200px;
+    &:hover {
+      color: #38b4ff;
+      text-shadow:
+        0 0 7px #383bff,
+        0 0 10px #2b2fd1,
+        0 0 21px #2b2fd1,
+        0 0 42px #2b2fd1,
+        0 0 82px #2b2fd1,
+        0 0 92px #2b2fd1;
     }
   }
-
-  &:hover{
-    input{
-      width: 200px;
-      transition: 0.8s;
-    }
-  }
-}
-
-.search{
-  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(298deg) brightness(102%) contrast(102%);
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
 }
 
 .profile-img {
@@ -111,7 +80,48 @@
   height: 30px;
 }
 
-.d-none{
-  display: none!important;
+.d-none {
+  display: none !important;
 
+}
+
+.update-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+}
+
+.update-content-container {
+  width: 40%;
+  height: 25%;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 16px;
+
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  gap:8px;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
 }

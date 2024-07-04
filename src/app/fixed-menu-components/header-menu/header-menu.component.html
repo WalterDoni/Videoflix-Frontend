@@ -13,14 +13,25 @@
     </span>
   </div>
   <span>
-    <div class="searchfield">
-      <input type="text" placeholder="Titel...">
-      <img src="./assets/img/header/search.png" alt="search" class="search">
-    </div>
+
     <div>
       <p (click)="toggleDropdown()">{{username}}</p>
       <div class="d-none" #dropdown><app-dropdown></app-dropdown></div>
     </div>
 
   </span>
+</div>
+
+<div class="update-container">
+  <div class="update-content-container">
+    <h2>Ändere deine Nutzerdaten</h2>
+    <div class="input-container">
+      <input type="text" [(ngModel)]="username" name="Benutzername" value={{username}}>
+      <input type="text" [(ngModel)]="email" name="Email" value={{email}}>
+    </div>
+    <div class="btn-container">
+      <button>Speichern</button>
+      <button>Verwerfen</button>
+    </div>
+  </div>
 </div>

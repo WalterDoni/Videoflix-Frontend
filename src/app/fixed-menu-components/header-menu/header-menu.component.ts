@@ -2,12 +2,13 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { DropdownComponent } from '../dropdown/dropdown.component';
 import { ActivatedRoute } from '@angular/router';
-
+import { FormsModule } from '@angular/forms';
+import { log } from 'console';
 
 @Component({
   selector: 'app-header-menu',
   standalone: true,
-  imports: [DropdownComponent],
+  imports: [DropdownComponent, FormsModule],
 
   templateUrl: './header-menu.component.html',
   styleUrl: './header-menu.component.scss'
@@ -17,6 +18,7 @@ export class HeaderMenuComponent {
   @ViewChild('dropdown') dropdown!: ElementRef;
   userID: string = 'error';
   username: string = 'error';
+  email: string = 'error';
 
   constructor(private router: Router, private route: ActivatedRoute) {
   }
@@ -41,6 +43,7 @@ export class HeaderMenuComponent {
       if (response.ok) {
         const data = await response.json();
         this.username = data.username;
+        this.email = data.email;
       } else {
         console.log('Failed to fetch username:', response.statusText);
       }
