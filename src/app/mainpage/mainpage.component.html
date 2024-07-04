@@ -1,35 +1,37 @@
-
-
-<app-header-menu></app-header-menu>
-
 <div class="content">
+<app-header-menu></app-header-menu>
   <div class="video-div">
-    <h2>Filme</h2>
-    @for (vid of videos; track vid.file; let index = $index) {
-    @if (vid.category == "movie") {
-      <div class="videoplayer" >
-        <video [src]="vid.file" controls type="video/mp4"></video>
+      <h2>Filme</h2>
+      <div class="videocontent">
+        @for (vid of videos; track vid.file; let index = $index) {
+        @if (vid.category == "movie") {
+        <div class="videoplayer">
+          <video [src]="vid.file" controls type="video/mp4"></video>
+        </div>
+        }}
       </div>
-    }}
 
-    <h2>Serien</h2>
-    @for (vid of videos; track vid.file; let index = $index) {
-    @if (vid.category == "series") {
-      <div class="videoplayer" >
-        <video [src]="vid.file" controls type="video/mp4"></video>
-      </div>
-    }}
+        <h2>Serien</h2>
+        <div class="videocontent">
+          @for (vid of videos; track vid.file; let index = $index) {
+          @if (vid.category == "series") {
+          <div class="videoplayer">
+            <video [src]="vid.file" controls type="video/mp4"></video>
+          </div>
+          }}
+        </div>
 
-    <h2>Dokumentationen</h2>
-    @for (vid of videos; track vid.file; let index = $index) {
-    @if (vid.category == "documentation") {
-      <div class="videoplayer" >
-        <video [src]="vid.file" controls type="video/mp4"></video>
-      </div>
-    }}
+          <h2>Dokumentationen</h2>
+          <div class="videocontent">
+            @for (vid of videos; track vid.file; let index = $index) {
+            @if (vid.category == "documentation") {
+            <div class="videoplayer">
+              <video [src]="vid.file" controls type="video/mp4"></video>
+            </div>
+            }}
+          </div>
+        </div>
 
 
-  </div>
-</div>
-
-<app-footer></app-footer>
+      <app-footer></app-footer>
+    </div>
