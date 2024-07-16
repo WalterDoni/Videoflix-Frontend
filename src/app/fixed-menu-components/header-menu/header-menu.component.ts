@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, viewChild, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { DropdownComponent } from '../dropdown/dropdown.component';
 import { ActivatedRoute } from '@angular/router';
@@ -16,6 +16,7 @@ import { log } from 'console';
 export class HeaderMenuComponent {
 
   @ViewChild('dropdown') dropdown!: ElementRef;
+
   userID: string = 'error';
   username: string = 'error';
   email: string = 'error';
@@ -32,7 +33,7 @@ export class HeaderMenuComponent {
   }
 
   async getUsernameWithUserID() {
-    const url = `http://127.0.0.1:8000/users/${this.userID}/username/`;
+    const url = `http://35.232.89.138/users/${this.userID}/username/`;
     try {
       const response = await fetch(url, {
         method: "GET",

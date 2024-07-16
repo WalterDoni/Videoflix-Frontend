@@ -21,7 +21,7 @@ export class StartscreenLoginComponent {
   }
 
   async userLogin() {
-    const url = `http://127.0.0.1:8000/login/`;
+    const url = `http://35.232.89.138/login/`;
 
     try {
         const response = await fetch(url, {
@@ -46,7 +46,7 @@ export class StartscreenLoginComponent {
 }
 
   async guestLogin() {
-    const url = `http://127.0.0.1:8000/login/`;
+    const url = `http://35.232.89.138/login/`;
     const response = await fetch(url, {
       method: "POST",
       headers: {

@@ -1,11 +1,25 @@
 
 <div class="container">
-  <div (click)=" navigateToProfile()">
+  <div (click)="toggleUpdateContainer()">
     <img src="./assets/img/header/person_filled.png" alt="Profile">
     <p>Profil</p>
   </div>
   <div (click)="navigateToStartscreen()">
     <img src="./assets/img/header/logout.png" alt="Logout">
     <p>Ausloggen</p>
+  </div>
+</div>
+
+<div class="update-container d-none" #updateContainer>
+  <div class="update-content-container">
+    <h2>Ändere deine Nutzerdaten</h2>
+    <div class="input-container">
+      <input type="text">
+      <input type="text">
+    </div>
+    <div class="btn-container">
+      <button>Speichern</button>
+      <button (click)="toggleUpdateContainer()">Verwerfen</button>
+    </div>
   </div>
 </div>

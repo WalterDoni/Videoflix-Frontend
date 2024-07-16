@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrl: './dropdown.component.scss'
 })
 export class DropdownComponent {
-
+  @ViewChild('updateContainer') updateContainer!: ElementRef;
 
   constructor(private router: Router){
 
@@ -22,5 +22,15 @@ export class DropdownComponent {
 
   navigateToProfile(){
     this.router.navigateByUrl('profile');
+  }
+
+  toggleUpdateContainer(){
+ 
+    const updateElement = this.updateContainer.nativeElement;
+    if (updateElement.classList.contains("d-none")){
+      updateElement.classList.remove("d-none");
+    }else {
+      updateElement.classList.add("d-none")
+    }
   }
 }
