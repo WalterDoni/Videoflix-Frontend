@@ -1,6 +1,6 @@
 <div class="headline">
   <div>
-    <span>
+    <span class="responsive-nocolumn">
       <img src="./assets/img/logo.png" alt="logo" class="logo">
       <p>Videoflix</p>
     </span>
@@ -12,13 +12,27 @@
       <p (click)="navigateToUpload()">Upload</p>
     </span>
   </div>
-  <span>
 
+  <div class="burger-btn" (click)="showMenu()" [class.clicked]="burgermenu">
+    <div></div>
+  </div>
+  <div class="resp-menu-container" [class.active-menu]="burgermenu">
+    <p (click)="showBrowse()">Startseite</p>
+    <p (click)="navigateToSeries()">Serien</p>
+    <p (click)="navigateToMovie()">Filme</p>
+    <p (click)="navigateToDocumentation()">Dokumentationen</p>
+    <p (click)="navigateToUpload()">Upload</p>
+  </div>
+  
+  <span>
     <div>
-      <p (click)="toggleDropdown()">{{username}}</p>
+      <p class="hide-name"(click)="toggleDropdown()">{{username}}</p>
       <div class="d-none" #dropdown ><app-dropdown></app-dropdown></div>
     </div>
 
   </span>
 </div>
+
+
+
 

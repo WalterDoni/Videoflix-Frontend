@@ -8,6 +8,13 @@
   box-shadow: 0px 0px 10px 10px rgb(0, 0, 0, 0.5);
   z-index: 100;
 
+  @media(max-width:600px){
+    height: 140px;
+    flex-direction: column;
+    padding: 18px 0px 18px 0px;
+    gap: 4px;
+  }
+
   span {
 
     a {

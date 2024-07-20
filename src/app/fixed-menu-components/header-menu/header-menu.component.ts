@@ -20,7 +20,7 @@ export class HeaderMenuComponent {
   userID: string = 'error';
   username: string = 'error';
   email: string = 'error';
-
+  burgermenu = false;
   constructor(private router: Router, private route: ActivatedRoute) {
   }
 
@@ -81,4 +81,13 @@ export class HeaderMenuComponent {
   navigateToDocumentation() {
     this.router.navigateByUrl(`documentations/${this.userID}`)
   }
+
+  showMenu() {
+    if (this.burgermenu == false) {
+      this.burgermenu = true;
+    } else {
+      this.burgermenu = false;
+    }
+  }
+
 }
