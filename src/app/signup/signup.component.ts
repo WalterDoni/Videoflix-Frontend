@@ -30,7 +30,7 @@ export class SignupComponent {
   }
 
   async createNewUserInBackend() {
-    const url = `http://35.232.89.138/signup/`;
+    const url = `http://35.232.116.50/signup/`;
     try {
         const response = await fetch(url, {
             method: "POST",

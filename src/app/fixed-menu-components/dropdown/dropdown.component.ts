@@ -1,5 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-dropdown',
@@ -11,11 +12,20 @@ import { Router } from '@angular/router';
 export class DropdownComponent {
   @ViewChild('updateContainer') updateContainer!: ElementRef;
 
-  constructor(private router: Router){
+  userID: string = 'error';
+  username: string = 'error';
+  email: string = 'error';
 
+  constructor(private router: Router, private route: ActivatedRoute) {
   }
 
-
+  ngOnInit(): void {
+    const userIdFromRoute = this.route.snapshot.paramMap.get('userId');
+    if (userIdFromRoute) {
+      this.userID = userIdFromRoute;
+      this.getUsernameWithUserID();
+    }
+  }
   navigateToStartscreen(){
     this.router.navigateByUrl('');
   }
@@ -31,6 +41,27 @@ export class DropdownComponent {
       updateElement.classList.remove("d-none");
     }else {
       updateElement.classList.add("d-none")
+    }
+  }
+
+  async getUsernameWithUserID() {
+    const url = `http://35.232.116.50/users/${this.userID}/username/`;
+    try {
+      const response = await fetch(url, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      if (response.ok) {
+        const data = await response.json();
+        this.username = data.username;
+        this.email = data.email;
+      } else {
+        console.log('Failed to fetch username:', response.statusText);
+      }
+    } catch (error) {
+      console.log('Error fetching username:', error);
     }
   }
 }

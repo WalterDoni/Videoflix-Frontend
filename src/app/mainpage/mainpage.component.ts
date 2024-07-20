@@ -25,7 +25,7 @@ export class MainpageComponent {
   }
 
   async getVideos() {
-    const url = 'http://35.232.89.138/video/';
+    const url = 'http://35.232.116.50/video/';
     try {
       const response = await fetch(url, {
         method: 'GET',
@@ -39,7 +39,7 @@ export class MainpageComponent {
         title: video.title,
         description: video.description,
         category: video.category,
-        file: 'http://35.232.89.138' + video.video_file,
+        file: 'http://35.232.116.50' + video.video_file,
       }));
     } catch (e) {
       console.log(e);

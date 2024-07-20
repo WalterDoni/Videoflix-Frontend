@@ -33,7 +33,7 @@ export class HeaderMenuComponent {
   }
 
   async getUsernameWithUserID() {
-    const url = `http://35.232.89.138/users/${this.userID}/username/`;
+    const url = `http://35.232.116.50/users/${this.userID}/username/`;
     try {
       const response = await fetch(url, {
         method: "GET",
