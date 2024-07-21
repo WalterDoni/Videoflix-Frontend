@@ -1,5 +1,4 @@
-
-.container{
+.container {
   position: absolute;
   gap: 8px;
   background-color: white;
@@ -9,7 +8,7 @@
   border-radius: 10px 0px 10px 10px;
   z-index: 3;
 
-  div{
+  div {
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -17,18 +16,18 @@
     padding: 4px;
     transition: background-color ease-in-out .2s;
 
-    &:hover{
+    &:hover {
       background-color: #ECEEFE;
     }
 
 
-    p{
-      font-size:18px;
+    p {
+      font-size: 18px;
       color: black;
       text-shadow: none;
     }
 
-    img{
+    img {
       width: 30px;
       height: 30px;
       padding: 8px;
@@ -36,8 +35,8 @@
   }
 }
 
-.d-none{
-  display: none!important;
+.d-none {
+  display: none !important;
 }
 
 .update-container {
@@ -52,7 +51,6 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
 }
 
 .update-content-container {
@@ -66,12 +64,19 @@
   flex-direction: column;
   gap: 16px;
 
-  h2{
+  h2 {
     color: black;
     text-shadow: none;
     font-size: 30px;
   }
 
+  @media(max-width:450px) {
+    width: 300px;
+
+    h2 {
+      font-size: 24px;
+    }
+  }
 }
 
 .input-container {

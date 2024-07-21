@@ -18,8 +18,8 @@
       <input type="text" value="{{email}}">
     </div>
     <div class="btn-container">
-      <button>Speichern</button>
-      <button (click)="toggleUpdateContainer()">Verwerfen</button>
+      <button (click)="toggleUpdateContainer();toggleDropdown()">Speichern</button>
+      <button (click)="toggleUpdateContainer();toggleDropdown()">Verwerfen</button>
     </div>
   </div>
 </div>
