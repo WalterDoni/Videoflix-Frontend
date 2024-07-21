@@ -1,13 +1,20 @@
 .content {
-  padding-left: 24px;
+  padding-left: 16px;
   margin-top: 120px;
   height: calc(100vh - 220px);
+
+
 }
 
 .video-div {
   display: flex;
   gap: 24px;
 
+  @media (max-width: 1200px) {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    padding: 10px;
+  }
   div {
     border-radius: 10px;
     padding: 24px 0px;
@@ -21,12 +28,41 @@
       object-fit: cover;
       transition: transform ease-in-out .2s;
       box-shadow: 10px 10px 7px 0px rgb(0, 0, 0, 0.15);
-
       &:hover {
         transform: scale(1.1);
         cursor: pointer;
+      }
+      
+      @media(max-width: 1200px) {
+        margin-left: 12px;
+      }
 
+      @media(max-width:460px) {
+        margin-left: unset;
+        width: 300px;
+        height: 160px;
+
+
+        &:hover {
+          transform: scale(1.05);
+        }
       }
     }
   }
+}
+
+
+.video-div::-webkit-scrollbar {
+  width: 12px; 
+  height: 12px; 
+}
+
+.video-div::-webkit-scrollbar-track {
+  background: #ECEEFE; 
+  border-radius: 10px;
+}
+
+.video-div::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
 }
