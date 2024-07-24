@@ -17,10 +17,11 @@
             <input type="password" placeholder="Passwort" [(ngModel)]="password" name="password" required>
             <div class="form-btn-container">
                 <button type="submit" [disabled]="loginForm.form.invalid">Login</button>
+                <button class="guest-btn" (click)="guestLogin()">Gäste-Login</button>
             </div>
         </form>
-        <button class="guest-btn" (click)="guestLogin()">Gäste-Login</button>
-        <div style="padding: 10px;"> Kein Account? <a (click)="showSignup()" class="register-href">Zur Registrierung</a></div>
+    
+        <div class="account"> Kein Account? <a (click)="showSignup()" class="register-href">Zur Registrierung</a></div>
         <div class="headline-refs">
             <a (click)="showDataprotection()">Datenschutz</a>
             <a href="https://walter-doni.at">Walter Doni</a>
