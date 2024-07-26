@@ -25,6 +25,11 @@ body {
       0 0 82px #2b2fd1,
       0 0 92px #2b2fd1;
     z-index: 2;
+
+    
+  @media(max-width:510px){
+    font-size: 32px;
+  }
   }
 
   img {
@@ -73,10 +78,20 @@ body {
   animation: loadInAnimation 1.8s ease-in forwards;
   color: white;
 
+  @media(max-width:510px){
+    width: 300px;
+    top: 30%;
+  }
+
   h1 {
     padding: 10px;
     color: white;
 
+    
+  @media(max-width:510px){
+    padding: 5px;
+    font-size: 28px;
+  }
   }
 
   form {
@@ -86,6 +101,11 @@ body {
     gap: 10px;
     width: 95%;
 
+    
+  @media(max-width:510px){
+    width: unset;
+  }
+
     input {
       padding: 10px 45px;
       border-radius: 10px;
@@ -93,6 +113,10 @@ body {
       font-size: 16px;
       background-repeat: no-repeat;
       background-position: 4%;
+
+      @media(max-width:510px){
+        font-size: 14px;
+      }
 
       &:first-child {
         background-image: url('/assets/img/login/person_filled.png');
@@ -111,16 +135,22 @@ body {
       cursor: pointer;
       transition: background-color ease-in-out .2s, color ease-in-out .2s, box-shadow ease-in-out .2s;
       width: 70%;
-
-      &:hover {
+    
+      &:not(:disabled):hover {
         color: white;
         background-color: #38b4ff;
         box-shadow:
           0 0 7px #383bff,
           0 0 10px #2b2fd1,
-          0 0 21px #2b2fd1,
+          0 0 21px #2b2fd1;
+      }
+    
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
       }
     }
+    
   }
 }
 
@@ -198,5 +228,18 @@ body {
         0 0 92px #2b2fd1;
 
     }
+  }
+
+  @media(max-width:510px){
+    padding: 5px;
+    justify-content: space-between;
+  }
+}
+
+.account{
+  padding: 10px;
+
+  @media(max-width:510px){
+    padding: 5px;
   }
 }
