@@ -12,6 +12,9 @@ import { HeaderMenuComponent } from '../header-menu/header-menu.component';
 })
 export class DropdownComponent {
   @ViewChild('updateContainer') updateContainer!: ElementRef;
+  @ViewChild('changedUsername') changedUsername!: ElementRef;
+  @ViewChild('changedEmail') changedEmail!: ElementRef;
+
 
   userID: string = 'error';
   username: string = 'error';
@@ -27,19 +30,20 @@ export class DropdownComponent {
       this.getUsernameWithUserID();
     }
   }
-  navigateToStartscreen(){
+
+  navigateToStartscreen() {
     this.router.navigateByUrl('');
   }
 
-  navigateToProfile(){
+  navigateToProfile() {
     this.router.navigateByUrl('profile');
   }
 
-  toggleUpdateContainer(){
+  toggleUpdateContainer() {
     const updateElement = this.updateContainer.nativeElement;
-    if (updateElement.classList.contains("d-none")){
+    if (updateElement.classList.contains("d-none")) {
       updateElement.classList.remove("d-none");
-    }else {
+    } else {
       updateElement.classList.add("d-none")
     }
   }
@@ -53,9 +57,34 @@ export class DropdownComponent {
     }
   }
 
+  async changeUserValues() {
+    this.username = this.changedUsername.nativeElement.value;
+    this.email = this.changedEmail.nativeElement.value;
+
+    const url = `http://35.232.116.50/users/${this.userID}/update/`;
+    try {
+      const response = await fetch(url, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username: this.username,
+          email: this.email,
+        }),
+      });
+      if (response.ok) {
+        console.log("Änderungen durchgeführt")
+        this.header.getUsernameWithUserID();
+      }
+    } catch (e) {
+      alert(`Fehler: ${e}`);
+    }
+  }
 
   async getUsernameWithUserID() {
     const url = `http://35.232.116.50/users/${this.userID}/username/`;
+
     try {
       const response = await fetch(url, {
         method: "GET",

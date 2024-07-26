@@ -14,11 +14,11 @@
   <div class="update-content-container">
     <h2>Ändere deine Nutzerdaten</h2>
     <div class="input-container">
-      <input type="text" value="{{username}}">
-      <input type="text" value="{{email}}">
+      <input type="text" value="{{username}}" #changedUsername>
+      <input type="text" value="{{email}}" #changedEmail>
     </div>
     <div class="btn-container">
-      <button (click)="toggleUpdateContainer();toggleDropdown()">Speichern</button>
+      <button (click)="toggleUpdateContainer();changeUserValues();toggleDropdown();">Speichern</button>
       <button (click)="toggleUpdateContainer();toggleDropdown()">Verwerfen</button>
     </div>
   </div>

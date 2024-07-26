@@ -1,16 +1,15 @@
 <app-header-menu></app-header-menu>
 <div class="container">
-
   <div class="form-container">
     <h2>Fehler gefunden oder wollen Sie Kontakt mit mir aufnehmen?</h2>
     <h4>Senden Sie mir eine E-Mail über dieses Formular:</h4>
-  <form (submit)="sendMail()">
-    <input type="text" placeholder="E-Mail Adresse">
-    <input type="text" placeholder="Name">
-    <input type="text" placeholder="Titel">
-    <textarea name="" id="" cols="30" rows="10" placeholder="Nachricht..."></textarea>
-    <button>Senden</button>
-  </form>
-</div>
+    <form (ngSubmit)="sendMail()">
+      <input type="email" placeholder="E-Mail Adresse" [(ngModel)]="email" name="email" required>
+      <input type="text" placeholder="Name" [(ngModel)]="name" name="name" required>
+      <input type="text" placeholder="Titel" [(ngModel)]="title" name="title" required>
+      <textarea placeholder="Nachricht..." [(ngModel)]="message" name="message" required></textarea>
+      <button type="submit">Senden</button>
+    </form>
+  </div>
 </div>
 <app-footer></app-footer>
