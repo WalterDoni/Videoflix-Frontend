@@ -18,8 +18,9 @@
       <input type="text" value="{{email}}" #changedEmail>
     </div>
     <div class="btn-container">
-      <button (click)="toggleUpdateContainer();changeUserValues();toggleDropdown();">Speichern</button>
+      <button (click)="changeUserValues()">Speichern</button>
       <button (click)="toggleUpdateContainer();toggleDropdown()">Verwerfen</button>
     </div>
+    <div class="changesFeedback" #changesFeedback>Erfolgreich geändert.</div>
   </div>
 </div>

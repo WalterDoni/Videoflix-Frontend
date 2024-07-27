@@ -9,7 +9,7 @@ import { ContactFormularComponent } from './contact-formular/contact-formular.co
 import { SeriesComponent } from './series/series.component';
 import { MovieComponent } from './movie/movie.component';
 import { DocumentationComponent } from './documentation/documentation.component';
-import { ChangeProfileComponent } from './change-profile/change-profile.component';
+
 
 export const routes: Routes = [
   { path: '', component: StartscreenLoginComponent },
@@ -19,7 +19,6 @@ export const routes: Routes = [
   { path: 'series/:userId', component: SeriesComponent },
   { path: 'movies/:userId', component: MovieComponent },
   { path: 'documentations/:userId', component: DocumentationComponent },
-  { path: 'profile/:userId', component: ChangeProfileComponent},
   { path: 'dataprotection', component: DataprotectionComponent },
   { path: 'imprint', component: ImprintComponent },
   { path: 'contact', component: ContactFormularComponent },

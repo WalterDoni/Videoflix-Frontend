@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { HeaderMenuComponent } from '../fixed-menu-components/header-menu/header-menu.component';
 import { FooterComponent } from '../fixed-menu-components/footer/footer.component';
 import { FormsModule } from '@angular/forms';
@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './upload.component.scss'
 })
 export class UploadComponent {
+  @ViewChild('uploadSuccess') uploadSuccess!: ElementRef;
 
   title!: string;
   category!: string;
@@ -36,6 +37,14 @@ export class UploadComponent {
       this.file = fileInput.files[0];
       console.log('Selected file:', this.file);
     }}
+
+    showUploadFeedback(){
+      const feedbackElement = this.uploadSuccess.nativeElement;
+      feedbackElement.classList.add('show');
+      setTimeout(() => {
+        feedbackElement.classList.remove('show');
+      }, 2000);
+    }
 
     async uploadNewMovie() {
       const url = `http://35.232.116.50/video/`;

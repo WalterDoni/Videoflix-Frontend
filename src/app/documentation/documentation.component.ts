@@ -21,9 +21,7 @@ export class DocumentationComponent {
     try {
       const response = await fetch(url, {
         method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: {'Content-Type': 'application/json'},
       });
       const data = await response.json();
       this.videos = data.map((video: any) => ({

@@ -28,7 +28,6 @@ export class ContactFormularComponent {
       title: this.title,
       message: this.message
     };
-
     try {
       const response = await firstValueFrom(this.http.post('http://35.232.116.50/send-email/', mailData));
       console.log('Email erfolgreich gesendet', response);

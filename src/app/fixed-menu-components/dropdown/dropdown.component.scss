@@ -126,3 +126,35 @@
     }
   }
 }
+
+.changesFeedback {
+  z-index: 999;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #38b4ff;
+  text-shadow: 0 0 0.5px #2b2fd1, 0 0 1px #2b2fd1, 0 0 1.5px #2b2fd1,
+    0 0 2px #2b2fd1, 0 0 4px #2b2fd1;
+  font-size: 24px;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+
+
+  @media(max-width: 915px) {
+    p {
+      width: 90%;
+    }
+  }
+}
+
+.changesFeedback.show {
+  opacity: 1;
+  pointer-events: auto
+}
