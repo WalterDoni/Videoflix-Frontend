@@ -100,15 +100,13 @@ export class DropdownComponent {
           "Content-Type": "application/json",
         },
       });
-      if (response.ok) {
         const data = await response.json();
         this.username = data.username;
         this.email = data.email;
-      } else {
-        console.log('Failed to fetch username:', response.statusText);
-      }
     } catch (error) {
       console.log('Error fetching username:', error);
     }
   }
+
+
 }

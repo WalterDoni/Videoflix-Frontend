@@ -34,7 +34,6 @@ export class MainpageComponent {
         },
       });
       const data = await response.json();
-      console.log('Response data:', data);
       this.videos = data.map((video: any) => ({
         title: video.title,
         description: video.description,

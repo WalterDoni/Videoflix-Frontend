@@ -22,7 +22,6 @@ export class StartscreenLoginComponent {
 
   async userLogin() {
     const url = `http://35.232.116.50/login/`;
-
     try {
         const response = await fetch(url, {
             method: "POST",
@@ -36,7 +35,6 @@ export class StartscreenLoginComponent {
         });
         if (response.ok || response.status === 200) {
             const data = await response.json();
-
             this.userID = data.user_id;
             this.router.navigateByUrl(`browse/${this.userID}`);
         }

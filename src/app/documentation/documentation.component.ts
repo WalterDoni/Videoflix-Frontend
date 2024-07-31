@@ -9,29 +9,27 @@ import { FooterComponent } from '../fixed-menu-components/footer/footer.componen
   templateUrl: './documentation.component.html',
   styleUrl: './documentation.component.scss'
 })
+
 export class DocumentationComponent {
   videos: any[] = [];
 
   constructor() {
-    this.getVideos()
+    this.getVideos();
   }
 
   async getVideos() {
     const url = 'http://35.232.116.50/video/';
-    try {
-      const response = await fetch(url, {
-        method: 'GET',
-        headers: {'Content-Type': 'application/json'},
-      });
-      const data = await response.json();
-      this.videos = data.map((video: any) => ({
-        title: video.title,
-        description: video.description,
-        category: video.category,
-        file: 'http://35.232.116.50' + video.video_file,
-      }));
-    } catch (e) {
-      console.log(e);
-    }
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' },
+    });
+    const data = await response.json();
+    this.videos = data.map((video: any) => ({
+      title: video.title,
+      description: video.description,
+      category: video.category,
+      file: 'http://35.232.116.50' + video.video_file,
+    }));
   }
 }
+

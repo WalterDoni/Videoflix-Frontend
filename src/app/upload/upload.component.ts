@@ -35,7 +35,6 @@ export class UploadComponent {
     const fileInput = event.target as HTMLInputElement;
     if (fileInput.files && fileInput.files.length > 0) {
       this.file = fileInput.files[0];
-      console.log('Selected file:', this.file);
     }}
 
     showUploadFeedback(){
@@ -56,7 +55,6 @@ export class UploadComponent {
       formData.append('description', this.description);
       formData.append('category', this.category);
       formData.append('video_file', this.file);
-
       try {
         const response = await fetch(url, {
           method: "POST",
@@ -71,7 +69,6 @@ export class UploadComponent {
               }
             }, 3000);
           }
-          console.log("Upload erfolgreich");
         }
       } catch (e) {
         console.log("Fehler beim Upload:", e);

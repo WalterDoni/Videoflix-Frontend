@@ -18,7 +18,7 @@ export class HeaderMenuComponent {
   @ViewChild('dropdown') dropdown!: ElementRef;
 
   userID: string = 'error';
-  username: string = 'error';
+  username: string = '';
   email: string = 'error';
   burgermenu = false;
   constructor(private router: Router, private route: ActivatedRoute) {
@@ -41,13 +41,9 @@ export class HeaderMenuComponent {
           "Content-Type": "application/json",
         },
       });
-      if (response.ok) {
-        const data = await response.json();
-        this.username = data.username;
-        this.email = data.email;
-      } else {
-        console.log('Failed to fetch username:', response.statusText);
-      }
+      const data = await response.json();
+      this.username = data.username;
+      this.email = data.email;
     } catch (error) {
       console.log('Error fetching username:', error);
     }
