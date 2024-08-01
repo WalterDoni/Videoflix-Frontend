@@ -29,7 +29,7 @@ export class StartscreenLoginComponent {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                email: this.email, // E-Mail-Feld beibehalten
+                email: this.email,
                 password: this.password
             }),
         });

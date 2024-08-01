@@ -27,7 +27,7 @@ export class MovieComponent {
       title: video.title,
       description: video.description,
       category: video.category,
-      file: 'https://videoflix-backend.walter-doni.at/video/' + video.video_file,
+      file: 'https://videoflix-backend.walter-doni.at' + video.video_file,
     }));
   }
 }
