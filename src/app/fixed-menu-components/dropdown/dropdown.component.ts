@@ -71,7 +71,7 @@ export class DropdownComponent {
   async changeUserValues() {
     this.username = this.changedUsername.nativeElement.value;
     this.email = this.changedEmail.nativeElement.value;
-    const url = `http://35.232.116.50/users/${this.userID}/update/`;
+    const url = `https://videoflix-backend.walter-doni.at/users/${this.userID}/update/`;
     try {
       const response = await fetch(url, {
         method: "PATCH",
@@ -92,7 +92,7 @@ export class DropdownComponent {
   }
 
   async getUsernameWithUserID() {
-    const url = `http://35.232.116.50/users/${this.userID}/username/`;
+    const url = `https://videoflix-backend.walter-doni.at/users/${this.userID}/username/`;
     try {
       const response = await fetch(url, {
         method: "GET",

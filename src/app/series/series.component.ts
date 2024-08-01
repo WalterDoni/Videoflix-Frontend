@@ -17,7 +17,7 @@ export class SeriesComponent {
   }
 
   async getVideos() {
-    const url = 'http://35.232.116.50/video/';
+    const url = 'https://videoflix-backend.walter-doni.at/video/';
     const response = await fetch(url, {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },
@@ -27,7 +27,9 @@ export class SeriesComponent {
       title: video.title,
       description: video.description,
       category: video.category,
-      file: 'http://35.232.116.50' + video.video_file,
+      file: 'https://videoflix-backend.walter-doni.at/video/' + video.video_file,
     }));
+
+
   }
 }

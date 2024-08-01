@@ -21,7 +21,7 @@ export class StartscreenLoginComponent {
   }
 
   async userLogin() {
-    const url = `http://35.232.116.50/login/`;
+    const url = `https://videoflix-backend.walter-doni.at/login/`;
     try {
         const response = await fetch(url, {
             method: "POST",
@@ -44,7 +44,8 @@ export class StartscreenLoginComponent {
 }
 
   async guestLogin() {
-    const url = `http://35.232.116.50/login/`;
+    debugger
+    const url = `https://videoflix-backend.walter-doni.at/login/`;
     const response = await fetch(url, {
       method: "POST",
       headers: {

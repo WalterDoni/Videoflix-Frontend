@@ -29,7 +29,7 @@ export class ContactFormularComponent {
       message: this.message
     };
     try {
-      const response = await firstValueFrom(this.http.post('http://35.232.116.50/send-email/', mailData));
+      const response = await firstValueFrom(this.http.post('https://videoflix-backend.walter-doni.at/send-email/', mailData));
       console.log('Email erfolgreich gesendet', response);
       this.showUserFeedbackForMail();
       this.clearValues();

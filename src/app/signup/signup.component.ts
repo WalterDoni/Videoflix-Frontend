@@ -30,7 +30,7 @@ export class SignupComponent {
   }
 
   async createNewUserInBackend() {
-    const url = `http://35.232.116.50/signup/`;
+    const url = `https://videoflix-backend.walter-doni.at/signup/`;
     try {
         const response = await fetch(url, {
             method: "POST",
