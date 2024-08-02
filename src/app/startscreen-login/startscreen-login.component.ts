@@ -23,45 +23,30 @@ export class StartscreenLoginComponent {
   async userLogin() {
     const url = `https://videoflix-backend.walter-doni.at/login/`;
     try {
-        const response = await fetch(url, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                email: this.email,
-                password: this.password
-            }),
-        });
-        if (response.ok || response.status === 200) {
-            const data = await response.json();
-            this.userID = data.user_id;
-            this.router.navigateByUrl(`browse/${this.userID}`);
-        }
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: this.email,
+          password: this.password
+        }),
+      });
+      if (response.ok || response.status === 200) {
+        const data = await response.json();
+        this.userID = data.user_id;
+        this.router.navigateByUrl(`browse/${this.userID}`);
+      }
     } catch (e) {
-        alert("Bitte kontrollieren Sie nochmal Ihre Eingabe")
+      alert("Bitte kontrollieren Sie nochmal Ihre Eingabe")
     }
-}
+  }
 
   async guestLogin() {
-    debugger
-    const url = `https://videoflix-backend.walter-doni.at/login/`;
-    const response = await fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email: "gast@gast.at",
-        password: "Gast1234",
-      }),
-    });
-    if (response.ok || response.status === 200) {
-      const data = await response.json();
-      this.userID = data.user_id;
-      this.username = data.username;
-      this.router.navigateByUrl(`browse/${this.userID}`);
-    }
+    this.email = "gast@gast.at";
+    this.password = "Gast1234";
+    this.userLogin()
   }
 
   //--Navigation--//

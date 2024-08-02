@@ -46,7 +46,7 @@ export class UploadComponent {
     }
 
     async uploadNewMovie() {
-      const url = `http://35.232.116.50/video/`;
+      const url = `https://videoflix-backend.walter-doni.at/video/`;
       const currentDate = new Date().toISOString().split('T')[0];
       const feedback = document.querySelector('.upload') as HTMLElement | null;
       const formData = new FormData();
@@ -74,6 +74,5 @@ export class UploadComponent {
         console.log("Fehler beim Upload:", e);
       }
     }
-
 
 }

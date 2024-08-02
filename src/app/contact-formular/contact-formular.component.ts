@@ -30,7 +30,6 @@ export class ContactFormularComponent {
     };
     try {
       const response = await firstValueFrom(this.http.post('https://videoflix-backend.walter-doni.at/send-email/', mailData));
-      console.log('Email erfolgreich gesendet', response);
       this.showUserFeedbackForMail();
       this.clearValues();
     } catch (error) {
