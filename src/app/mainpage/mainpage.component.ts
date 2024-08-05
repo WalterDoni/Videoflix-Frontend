@@ -37,7 +37,9 @@ export class MainpageComponent {
     this.isDetailViewVisible = false;
   }
 
-
+  stopPropagation(event: Event) {
+    event.stopPropagation();
+  }
 
   navigateToUpload(){
     this.router.navigateByUrl('upload')

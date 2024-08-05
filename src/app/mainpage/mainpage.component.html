@@ -1,5 +1,5 @@
+<app-header-menu></app-header-menu>
 <div class="content">
-  <app-header-menu></app-header-menu>
   <div class="video-div">
     <h2>Filme</h2>
     <div class="videocontent">
@@ -47,17 +47,17 @@
   </div>
 
   <div *ngIf="isDetailViewVisible" class="videoDetailView" (click)="closeVideoDetails()">
-
-    <div class="videoContentDetailView">
-      <video [src]="selectedVideo.file" controls preload="auto"></video>
-      <h2>Titel</h2>
-      <p>{{ selectedVideo.title }}</p>
-      <h2>Beschreibung</h2>
-      <p>{{ selectedVideo.description }}</p>
+    <div class="arrow-div"> <img src="/assets/img/signup/arrow_back.png" alt="" class="arrow"></div>
+    <div class="videoContentDetailView" (click)="stopPropagation($event)">
+      <div style="height:450px" > <video [src]="selectedVideo.file" controls preload="auto" #videoElement></video></div>
+      <div style="height:300px">
+        <h2>Titel</h2>
+        <p>{{ selectedVideo.title }}</p>
+        <h2>Beschreibung</h2>
+        <p>{{ selectedVideo.description }}</p>
+      </div>
     </div>
-
   </div>
-
 
   <app-footer></app-footer>
 </div>
