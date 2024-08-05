@@ -1,37 +1,63 @@
 <div class="content">
-<app-header-menu></app-header-menu>
+  <app-header-menu></app-header-menu>
   <div class="video-div">
-      <h2>Filme</h2>
-      <div class="videocontent">
-        @for (vid of videos; track vid.file; let index = $index) {
-        @if (vid.category == "movie") {
-        <div class="videoplayer">
-          <video [src]="vid.file" controls type="video/mp4"></video>
+    <h2>Filme</h2>
+    <div class="videocontent">
+      @for (vid of videos; track vid.file; let index = $index) {
+      @if (vid.category == "movie") {
+      <div class="videoplayer">
+        <div>
+          <p>{{vid.title}}</p>
         </div>
-        }}
+        <video [src]="vid.file" type="video/mp4" (click)="openVideoDetails(vid.title, vid.description, vid.file)">
+        </video>
+
       </div>
-
-        <h2>Serien</h2>
-        <div class="videocontent">
-          @for (vid of videos; track vid.file; let index = $index) {
-          @if (vid.category == "series") {
-          <div class="videoplayer">
-            <video [src]="vid.file" controls type="video/mp4"></video>
-          </div>
-          }}
-        </div>
-
-          <h2>Dokumentationen</h2>
-          <div class="videocontent">
-            @for (vid of videos; track vid.file; let index = $index) {
-            @if (vid.category == "documentation") {
-            <div class="videoplayer">
-              <video [src]="vid.file" controls type="video/mp4"></video>
-            </div>
-            }}
-          </div>
-        </div>
-
-
-      <app-footer></app-footer>
+      }}
     </div>
+
+    <h2>Serien</h2>
+    <div class="videocontent">
+      @for (vid of videos; track vid.file; let index = $index) {
+      @if (vid.category == "series") {
+      <div class="videoplayer">
+        <div>
+          <p>{{vid.title}}</p>
+        </div>
+        <video [src]="vid.file" type="video/mp4" (click)="openVideoDetails(vid.title, vid.description, vid.file)">
+        </video>
+
+      </div>
+      }}
+    </div>
+
+    <h2>Dokumentationen</h2>
+    <div class="videocontent">
+      @for (vid of videos; track vid.file; let index = $index) {
+      @if (vid.category == "documentation") {
+      <div class="videoplayer">
+        <div>
+          <p>{{vid.title}}</p>
+        </div>
+        <video [src]="vid.file" type="video/mp4" (click)="openVideoDetails(vid.title, vid.description, vid.file)">
+        </video>
+      </div>
+      }}
+    </div>
+  </div>
+
+  <div *ngIf="isDetailViewVisible" class="videoDetailView" (click)="closeVideoDetails()">
+
+    <div class="videoContentDetailView">
+      <video [src]="selectedVideo.file" controls preload="auto"></video>
+      <h2>Titel</h2>
+      <p>{{ selectedVideo.title }}</p>
+      <h2>Beschreibung</h2>
+      <p>{{ selectedVideo.description }}</p>
+    </div>
+
+  </div>
+
+
+  <app-footer></app-footer>
+</div>

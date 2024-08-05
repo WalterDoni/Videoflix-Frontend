@@ -21,5 +21,5 @@ export const routes: Routes = [
   { path: 'documentations/:userId', component: DocumentationComponent },
   { path: 'dataprotection', component: DataprotectionComponent },
   { path: 'imprint', component: ImprintComponent },
-  { path: 'contact', component: ContactFormularComponent },
+  { path: 'contact/:userId', component: ContactFormularComponent },
 ];

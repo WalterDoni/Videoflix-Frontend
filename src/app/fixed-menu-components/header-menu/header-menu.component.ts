@@ -1,9 +1,9 @@
-import { Component, ElementRef, viewChild, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { DropdownComponent } from '../dropdown/dropdown.component';
 import { ActivatedRoute } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { log } from 'console';
+
 
 @Component({
   selector: 'app-header-menu',
@@ -17,9 +17,9 @@ export class HeaderMenuComponent {
 
   @ViewChild('dropdown') dropdown!: ElementRef;
 
-  userID: string = 'error';
+  userID: string = '';
   username: string = '';
-  email: string = 'error';
+  email: string = '';
   burgermenu = false;
   constructor(private router: Router, private route: ActivatedRoute) {
   }

@@ -67,7 +67,7 @@
         width: 245px;
     }
 
- 
+
 }
 
 .headline-content{
@@ -76,11 +76,9 @@
     align-items: center;
 
     img{
-      
         padding-left: 24px;
-        width: 24px;
-        height: 24px;
         cursor: pointer;
+
 
         &:hover {
             filter: invert(54%) sepia(48%) saturate(4557%) hue-rotate(215deg) brightness(102%) contrast(91%);
@@ -88,4 +86,6 @@
         }
     }
 }
+
+
 

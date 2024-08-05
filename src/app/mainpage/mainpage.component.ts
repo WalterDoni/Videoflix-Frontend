@@ -2,23 +2,42 @@ import { Router } from '@angular/router';
 import { Component} from '@angular/core';
 import { HeaderMenuComponent } from '../fixed-menu-components/header-menu/header-menu.component';
 import { FooterComponent } from '../fixed-menu-components/footer/footer.component';
+import { Url } from 'url';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
   selector: 'app-mainpage',
   standalone: true,
-  imports: [HeaderMenuComponent, FooterComponent],
+  imports: [HeaderMenuComponent, FooterComponent, CommonModule],
   templateUrl: './mainpage.component.html',
   styleUrl: './mainpage.component.scss',
 })
 
 export class MainpageComponent {
+
+  isDetailViewVisible = false;
+  selectedVideo: { file: string, title: string, description: string } = { file: '', title: '', description: '' };
+
+
   videos: any[] = [];
 
 
   constructor(private router: Router) {
     this.getVideos();
   }
+
+
+  openVideoDetails(title: string, description: string, file: string) {
+    this.selectedVideo = { title, description, file };
+    this.isDetailViewVisible = true;
+  }
+
+  closeVideoDetails() {
+    this.isDetailViewVisible = false;
+  }
+
+
 
   navigateToUpload(){
     this.router.navigateByUrl('upload')
@@ -38,5 +57,6 @@ export class MainpageComponent {
       file: 'https://videoflix-backend.walter-doni.at' + video.video_file,
     }));
   }
+
 
 }
