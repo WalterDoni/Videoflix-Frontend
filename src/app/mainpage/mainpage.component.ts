@@ -1,9 +1,9 @@
 import { Router } from '@angular/router';
-import { Component} from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { HeaderMenuComponent } from '../fixed-menu-components/header-menu/header-menu.component';
 import { FooterComponent } from '../fixed-menu-components/footer/footer.component';
-import { Url } from 'url';
 import { CommonModule } from '@angular/common';
+
 
 
 @Component({
@@ -15,10 +15,11 @@ import { CommonModule } from '@angular/common';
 })
 
 export class MainpageComponent {
+  @ViewChild('videoElement') videoElement!: ElementRef;
 
   isDetailViewVisible = false;
   selectedVideo: { file: string, title: string, description: string } = { file: '', title: '', description: '' };
-
+  videoName = "";
 
   videos: any[] = [];
 
@@ -30,7 +31,23 @@ export class MainpageComponent {
 
   openVideoDetails(title: string, description: string, file: string) {
     this.selectedVideo = { title, description, file };
+    const parsedUrl = new URL(file);
+    const path = parsedUrl.pathname;
+    const fileName = path.substring(path.lastIndexOf('/') + 1);
+    this.videoName = fileName.split('.')[0];
     this.isDetailViewVisible = true;
+  }
+
+  ChangeVideoQuality(quality: string) {
+    const newSrc = `https://videoflix-backend.walter-doni.at/media/videos/${this.videoName}_${quality}.mp4`;
+    this.videoElement.nativeElement.src = newSrc;
+    this.videoElement.nativeElement.load();
+  }
+
+  ChangeVideoQualityStandard() {
+    const newSrc = `https://videoflix-backend.walter-doni.at/media/videos/${this.videoName}.mp4`;
+    this.videoElement.nativeElement.src = newSrc;
+    this.videoElement.nativeElement.load();
   }
 
   closeVideoDetails() {
@@ -41,7 +58,8 @@ export class MainpageComponent {
     event.stopPropagation();
   }
 
-  navigateToUpload(){
+
+  navigateToUpload() {
     this.router.navigateByUrl('upload')
   }
 
