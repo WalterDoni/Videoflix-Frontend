@@ -1,16 +1,40 @@
 <app-header-menu></app-header-menu>
-
 <div class="content">
-  <h2>Dokumentationen</h2>
   <div class="video-div">
-    @for (vid of videos; track vid.file; let index = $index) {
-    @if (vid.category == "documentation") {
-    <div class="videoplayer">
-      <video [src]="vid.file" controls type="video/mp4"></video>
-    </div>
-    }}
 
+    <h2>Dokumentationen</h2>
+    <div class="videocontent">
+      @for (vid of videos; track vid.file; let index = $index) {
+      @if (vid.category == "documentation") {
+      <div class="videoplayer">
+        <div>
+          <p>{{vid.title}}</p>
+        </div>
+        <video [src]="vid.file" type="video/mp4" (click)="openVideoDetails(vid.title, vid.description, vid.file)">
+        </video>
+      </div>
+      }}
+    </div>
   </div>
+
+  <div *ngIf="isDetailViewVisible" class="videoDetailView" (click)="closeVideoDetails()">
+    <div class="arrow-div"> <img src="/assets/img/signup/arrow_back.png" alt="" class="arrow"></div>
+    <div class="videoContentDetailView" (click)="stopPropagation($event)">
+      <div style="height:450px"> <video [src]="selectedVideo.file" controls preload="auto" #videoElement></video></div>
+      <div style="height:300px">
+        <div class="btnDivDetailView">
+          <button (click)="ChangeVideoQuality('480p')">480p</button>
+          <button (click)="ChangeVideoQuality('720p')">720px</button>
+          <button (click)="ChangeVideoQualityStandard()">1080px</button>
+        </div>
+        <h2>Titel</h2>
+        <p>{{ selectedVideo.title }}</p>
+        <h2>Beschreibung</h2>
+        <p>{{ selectedVideo.description }}</p>
+      </div>
+    </div>
+  </div>
+
+  <app-footer></app-footer>
 </div>
 
-<app-footer></app-footer>
