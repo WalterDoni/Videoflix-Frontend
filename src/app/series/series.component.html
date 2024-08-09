@@ -20,7 +20,7 @@
   <div *ngIf="isDetailViewVisible" class="videoDetailView" (click)="closeVideoDetails()">
     <div class="arrow-div"> <img src="/assets/img/signup/arrow_back.png" alt="" class="arrow"></div>
     <div class="videoContentDetailView" (click)="stopPropagation($event)">
-      <div style="height:450px"> <video [src]="selectedVideo.file" controls preload="auto" #videoElement></video></div>
+      <div style="height:450px"> <video [src]="selectedVideo.file" controls controlsList="nodownload"  preload="auto" #videoElement></video></div>
       <div style="height:300px">
         <div class="btnDivDetailView">
           <button (click)="ChangeVideoQuality('480p')">480p</button>
