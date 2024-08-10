@@ -5,13 +5,13 @@
     </video>
 </div>
 <div class="container">
-    <div  class="headline-box">
+    <div class="headline-box">
         <img src="./assets/img/logo.png" alt="">
         <h1>VIDEOFLIX</h1>
     </div>
 
     <div class="login-container">
-            <h1>Einloggen</h1>
+        <h1>Einloggen</h1>
         <form (ngSubmit)="userLogin()" #loginForm="ngForm">
             <input type="text" placeholder="E-Mail-Adresse" [(ngModel)]="email" name="email" required>
             <input type="password" placeholder="Passwort" [(ngModel)]="password" name="password" required>
@@ -20,8 +20,11 @@
                 <button class="guest-btn" (click)="guestLogin()">Gäste-Login</button>
             </div>
         </form>
-    
-        <div class="account"> Kein Account? <a (click)="showSignup()" class="register-href">Zur Registrierung</a></div>
+
+        <div class="account">
+            <p>Kein Account? <a (click)="showSignup()" class="register-href">Zur Registrierung</a></p>
+            <p>Passwort vergessen? <a (click)="showForgotPassword()" class="register-href">Hier klicken</a></p>
+        </div>
         <div class="headline-refs">
             <a (click)="showDataprotection()">Datenschutz</a>
             <a href="https://walter-doni.at">Walter Doni</a>

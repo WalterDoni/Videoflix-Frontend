@@ -9,6 +9,8 @@ import { ContactFormularComponent } from './contact-formular/contact-formular.co
 import { SeriesComponent } from './series/series.component';
 import { MovieComponent } from './movie/movie.component';
 import { DocumentationComponent } from './documentation/documentation.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 
 export const routes: Routes = [
@@ -22,4 +24,6 @@ export const routes: Routes = [
   { path: 'dataprotection', component: DataprotectionComponent },
   { path: 'imprint', component: ImprintComponent },
   { path: 'contact/:userId', component: ContactFormularComponent },
+  { path: 'forgot-password', component: ForgotPasswordComponent },
+  { path: 'reset-password/:uid/:token', component: ResetPasswordComponent },
 ];

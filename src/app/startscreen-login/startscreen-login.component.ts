@@ -62,6 +62,10 @@ export class StartscreenLoginComponent {
     this.router.navigateByUrl('signup');
   }
 
+  showForgotPassword(){
+    this.router.navigateByUrl('forgot-password');
+  }
+
 
 
 
