@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 
-
 @Component({
   selector: 'app-reset-password',
   standalone: true,
@@ -21,9 +20,10 @@ export class ResetPasswordComponent {
     this.uid = this.route.snapshot.params['uid'];
     this.token = this.route.snapshot.params['token'];
   }
-  
+
   async resetPassword() {
-    const url = `http://127.0.0.1:8000/reset-password/${this.uid}/${this.token}/`;
+    const newPasswordValue = this.newPassword.nativeElement.value;
+    const url = `https://videoflix-backend.walter-doni.at/reset-password/${this.uid}/${this.token}/`;
     try {
         const response = await fetch(url, {
             method: "POST",
@@ -31,7 +31,7 @@ export class ResetPasswordComponent {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                new_password: this.newPassword,
+                new_password: newPasswordValue,
             }),
         });
 

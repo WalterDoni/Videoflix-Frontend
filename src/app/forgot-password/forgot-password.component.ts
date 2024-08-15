@@ -14,7 +14,7 @@ export class ForgotPasswordComponent {
   newPassword: string = '';
   uid: string = '';
   token: string = '';
-  @ViewChild ('email') email!: ElementRef;
+  email: string = '';
 
   constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) {
     this.uid = this.route.snapshot.params['uid'];
@@ -22,7 +22,8 @@ export class ForgotPasswordComponent {
   }
   
   async sendPasswordResetEmail() {
-    const url = `http://127.0.0.1:8000/password-reset/`;
+    
+    const url = `https://videoflix-backend.walter-doni.at/password-reset/`;
     try {
       const response = await fetch(url, {
         method: "POST",
@@ -30,7 +31,7 @@ export class ForgotPasswordComponent {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          email: this.email.nativeElement.value.trim(),
+          email: this.email.trim(),
         }),
       });
   
