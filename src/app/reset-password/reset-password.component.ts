@@ -1,8 +1,7 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-
 
 @Component({
     selector: 'app-reset-password',
@@ -17,7 +16,7 @@ export class ResetPasswordComponent {
     uid: string = '';
     token: string = '';
 
-    constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) {
+    constructor(private route: ActivatedRoute, private router: Router) {
         this.uid = this.route.snapshot.params['uid'];
         this.token = this.route.snapshot.params['token'];
     }
@@ -44,7 +43,6 @@ export class ResetPasswordComponent {
             });
             alert('Das Passwort wurde geändert');
             this.router.navigateByUrl('');
-
         } catch (e) {
             alert(e);
         }
