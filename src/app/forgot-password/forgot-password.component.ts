@@ -11,7 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrl: './forgot-password.component.scss'
 })
 export class ForgotPasswordComponent {
-  newPassword: string = '';
+
   uid: string = '';
   token: string = '';
   email: string = '';
@@ -20,9 +20,8 @@ export class ForgotPasswordComponent {
     this.uid = this.route.snapshot.params['uid'];
     this.token = this.route.snapshot.params['token'];
   }
-  
+
   async sendPasswordResetEmail() {
-    
     const url = `https://videoflix-backend.walter-doni.at/password-reset/`;
     try {
       const response = await fetch(url, {
@@ -34,18 +33,13 @@ export class ForgotPasswordComponent {
           email: this.email.trim(),
         }),
       });
-  
-      if (response.ok) {
-        alert('Eine E-Mail zum Zurücksetzen des Passworts wurde gesendet.');
-      } else {
-        const errorData = await response.json();
-        alert(`Fehler: ${errorData.error || 'Unbekannter Fehler'}`);
-      }
+      alert('Eine E-Mail zum Zurücksetzen des Passworts wurde gesendet.');
+      this.router.navigateByUrl('');
     } catch (e) {
-      alert('Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.');
+      alert(e);
     }
   }
-  
+
 
   goToLoginPage() {
     this.router.navigateByUrl('');
