@@ -2,6 +2,7 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
+
 @Component({
   selector: 'app-signup',
   standalone: true,
@@ -18,15 +19,17 @@ export class SignupComponent {
   checkPassword: string = '';
 
   constructor(private router: Router) {
-
   }
 
   checkPasswordAndCreateNewUser() {
-    if (this.password === this.checkPassword) {
-      this.createNewUserInBackend()
+    if (this.password.length < 8) {
+      alert('Das Passwort ist zu kurz. Es muss mindestens 8 Zeichen lang sein.')
     } else {
-      alert("Die Passwörter stimmen nicht überein!");
-
+      if (this.password === this.checkPassword) {
+        this.createNewUserInBackend()
+      } else {
+        alert("Die Passwörter stimmen nicht überein!");
+      }
     }
   }
 
@@ -44,9 +47,26 @@ export class SignupComponent {
           password: this.password,
         }),
       });
-      this.showSuccessChangeValues();
+      if (!response.ok) {
+        const errorData = await response.json();
+        if (errorData.error) {
+          this.checkError(errorData)
+        }
+      } else {
+        this.showSuccessChangeValues();
+      }
     } catch (e) {
       alert("Bitte kontrollieren Sie nochmals Ihre Eingabe");
+    }
+  }
+
+  checkError(errorData: any) {
+    const errorMessage = errorData.error.toLowerCase();
+    if (errorMessage.includes("email") && errorMessage.includes("already registered")) {
+      alert("Diese E-Mail-Adresse ist bereits registriert. Bitte verwende eine andere E-Mail-Adresse.");
+    }
+    else if (errorMessage.includes("username") && errorMessage.includes("already exists")) {
+      alert("Dieser Benutzername ist bereits registriert. Bitte verwende einen anderen Benutzernamen.");
     }
   }
 

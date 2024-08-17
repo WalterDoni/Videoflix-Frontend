@@ -33,13 +33,18 @@ export class StartscreenLoginComponent {
           password: this.password
         }),
       });
-      if (response.ok || response.status === 200) {
+      if (!response.ok) {
+        const errorData = await response.json();
+        if (errorData.error) {
+          this.checkError(errorData)
+        }
+      } else {
         const data = await response.json();
         this.userID = data.user_id;
         this.router.navigateByUrl(`browse/${this.userID}`);
       }
     } catch (e) {
-      alert("Bitte kontrollieren Sie nochmal Ihre Eingabe")
+      alert("Bitte kontrolliere nochmal deine Eingabe")
     }
   }
 
@@ -47,6 +52,17 @@ export class StartscreenLoginComponent {
     this.email = "gast@gast.at";
     this.password = "Gast1234";
     this.userLogin()
+  }
+
+  checkError(errorData: any) {
+    const errorMessage = errorData.error.toLowerCase();
+    if (errorMessage.includes("email") && errorMessage.includes("not verified")) {
+      alert("Diese E-Mail-Adresse ist noch nicht verifiziert, bitte überprüfe deine E-Mails.");
+    } else if (errorMessage.includes("password") && errorMessage.includes("is wrong")) {
+      alert("Das Passwort stimmt nicht.");
+    } else if (errorMessage.includes("email") && errorMessage.includes("does not exist")) {
+      alert("Kein Account mit dieser E-Mail-Adresse gefunden.");
+    }
   }
 
   //--Navigation--//
@@ -62,7 +78,7 @@ export class StartscreenLoginComponent {
     this.router.navigateByUrl('signup');
   }
 
-  showForgotPassword(){
+  showForgotPassword() {
     this.router.navigateByUrl('forgot-password');
   }
 

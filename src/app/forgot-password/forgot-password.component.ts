@@ -1,5 +1,5 @@
-import {HttpClientModule } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -11,6 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrl: './forgot-password.component.scss'
 })
 export class ForgotPasswordComponent {
+  @ViewChild('pwResetEmailSendSuccess') pwResetEmailSendSuccess!: ElementRef;
 
   uid: string = '';
   token: string = '';
@@ -32,14 +33,34 @@ export class ForgotPasswordComponent {
         body: JSON.stringify({
           email: this.email.trim(),
         }),
-      });
-      alert('Eine E-Mail zum Zurücksetzen des Passworts wurde gesendet.');
-      this.router.navigateByUrl('');
+      }); if (!response.ok) {
+        const errorData = await response.json();
+        if (errorData.error) {
+          this.checkError(errorData)
+        }
+      } else {
+        this.sendPwResetEmailSendSuccess();
+      }
     } catch (e) {
       alert(e);
     }
   }
 
+  checkError(errorData: any) {
+    const errorMessage = errorData.error.toLowerCase();
+    if (errorMessage.includes("no user found with this email address")) {
+      alert("Kein Account mit dieser E-Mail-Adresse gefunden.");
+    }
+  }
+
+  sendPwResetEmailSendSuccess() {
+    const feedbackElement = this.pwResetEmailSendSuccess.nativeElement;
+    feedbackElement.classList.add('show');
+    setTimeout(() => {
+      feedbackElement.classList.remove('show');
+      this.goToLoginPage();
+    }, 2000);
+  }
 
   goToLoginPage() {
     this.router.navigateByUrl('');

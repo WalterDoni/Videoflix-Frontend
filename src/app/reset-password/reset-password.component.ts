@@ -1,5 +1,5 @@
 import { HttpClientModule } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -11,6 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
     styleUrl: './reset-password.component.scss'
 })
 export class ResetPasswordComponent {
+    @ViewChild('pwResetSuccess') pwResetSuccess!: ElementRef;
     newPassword: string = '';
     checkNewPassword: string = '';
     uid: string = '';
@@ -22,10 +23,14 @@ export class ResetPasswordComponent {
     }
 
     checkPasswordAndCreateNewUser() {
-        if (this.newPassword === this.checkNewPassword) {
-            this.resetPassword();
+        if (this.newPassword.length < 8) {
+            alert('Das Passwort ist zu kurz. Es muss mindestens 8 Zeichen lang sein.')
         } else {
-            alert("Die Passwörter stimmen nicht überein!");
+            if (this.newPassword === this.checkNewPassword) {
+                this.resetPassword()
+            } else {
+                alert("Die Passwörter stimmen nicht überein!");
+            }
         }
     }
 
@@ -41,11 +46,22 @@ export class ResetPasswordComponent {
                     new_password: this.newPassword,
                 }),
             });
-            alert('Das Passwort wurde geändert');
-            this.router.navigateByUrl('');
+            this.sendPwResetEmailSendSuccess();
         } catch (e) {
             alert(e);
         }
     }
 
+    sendPwResetEmailSendSuccess() {
+        const feedbackElement = this.pwResetSuccess.nativeElement;
+        feedbackElement.classList.add('show');
+        setTimeout(() => {
+            feedbackElement.classList.remove('show');
+            this.goToLoginPage();
+        }, 2000);
+    }
+
+    goToLoginPage() {
+        this.router.navigateByUrl('');
+    }
 }
